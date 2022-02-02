@@ -14,34 +14,22 @@
     <body>
         <div id="content">
             <img src="../../img/logo.png" class="logo td1s none">
-            <div class="form_name td2s none">お申込みフォーム</div>
+            <div class="form_name td2s none">お支払い確認{{session('id')}}</div>
 
-            <form name="app_form" action="{{ route('app_store') }}" method="post" enctype="multipart/form-data">
+            @if(!Session::has('id'))
+            <form class="txid_form" name="txid_form" action="{{ route('txid_store') }}" method="post" enctype="multipart/form-data">
+                {{ Form::hidden('id', session('id')) }}
                 @csrf
                 <div class="form_item form_1 td3s none">
-                    <div class="item_name">お名前</div>
-                    {{ Form::text('name', old('name'), ['class' => 'item_text', 'maxlength' => 20]) }}
+                    <div class="item_name">TXID</div>
+                    {{ Form::text('txid', old('txid'), ['class' => 'item_text', 'maxlength' => 50]) }}
                 </div>
-                <div class="form_item form_2 td4s none">
-                    <div class="item_name">住所</div>
-                    {{ Form::text('address', old('address'), ['class' => 'item_text', 'maxlength' => 100]) }}
-                </div>
-                <div class="form_item form_3 td5s none">
-                    <div class="item_name">電話番号</div>
-                    {{ Form::text('tel', old('tel'), ['class' => 'item_text', 'maxlength' => 15]) }}
-                </div>
-                <div class="form_item form_4 td6s none">
-                    <div class="item_name">メールアドレス</div>
-                    {{ Form::text('mail', old('mail'), ['class' => 'item_text', 'maxlength' => 100]) }}
-                </div>
-                <div class="form_item form_5 td7s none">
-                    <div class="item_name">紹介コード</div>
-                    {{ Form::text('code', old('code'), ['class' => 'item_text', 'maxlength' => 30]) }}
-                </div>
-                <div class="button_form td8s none">
-                    <a href="#" onclick="clickRegistButton()">決済ページへ</a>
+                <div class="txid_explain">上記にお支払いのTXIDをご入力下さい。</div>
+                <div class="button_form">
+                    <a href="#" onclick="clickTxidButton()">TXIDを送信する</a>
                 </div>
             </form>
+            @endif
         </div>
 
     </body>

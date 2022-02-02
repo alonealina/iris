@@ -56,51 +56,43 @@ class IrisController extends Controller
         return view('settle_form');
     }
 
-    public function news_update(Request $request)
+    public function confirm(Request $request)
+    {
+        return view('confirm_form')->with('id', $request->id);
+    }
+
+    public function txid_store(Request $request)
     {
         $rules = [
-            'title' => ['max:20', 'required'],
-            'content' => 'required',
+            'txid' => 'required',
         ];
 
         $messages = [
-            'title.max' => 'タイトルは20文字以下でお願いします',
-            'title.required' => 'タイトルを入力してください',
-            'content.required' => '内容を入力してください',
+            'txid.required' => 'TXIDを入力してください',
         ];
 
         Validator::make($request->all(), $rules, $messages)->validate();
 
         $request = $request->all();
-        $news = News::find($request['id']);
+        $application = Application::find($request['id']);
 
         $fill_data = [
-            'title' => $request['title'],
-            'content' => $request['content'],
-            'release_flg' => $request['release'] == 1 ? 1 : 0,
-            'notice_date' => date('Y/m/d'),
+            'txid' => $request['txid'],
         ];
 
         DB::beginTransaction();
         try {
-            $news->update($fill_data);
+            $application->update($fill_data);
             DB::commit();
-            return redirect()->to('admin/news_list')->with('message', 'お知らせの更新が完了いたしました。');
+            return redirect()->to('complete');
         } catch (\Exception $e) {
             DB::rollback();
         }
     }
 
-    public function news_delete($id)
+    public function complete()
     {
-        DB::beginTransaction();
-        try {
-            News::where('id', $id)->delete();
-            DB::commit();
-            return redirect()->route('admin.news_list')->with('message', 'お知らせ情報を削除しました');
-        } catch (\Exception $e) {
-            DB::rollback();
-        }
+        return view('complete');
     }
 
     public function login(Request $request)

@@ -14,36 +14,26 @@
     <body>
         <div id="content">
             <img src="../../img/logo.png" class="logo td1s none">
-            <div class="form_name td2s none">
-                決済フォーム{{ session('id') }}
+            <div class="form_name td2s none">決済フォーム</div>
+
+            <div class="pay_price td3s none">
+                購入金額：<div class="pay_int">1,000</div> USDT
             </div>
 
-            <form id="form" name="app_form" action="" method="post" enctype="multipart/form-data">
+            @if(!Session::has('id'))
+            <form name="pay_form" action="{{ route('confirm') }}" method="post" enctype="multipart/form-data">
+                {{ Form::hidden('id', session('id')) }}
                 @csrf
-                <div class="form_item form_1 td3s none">
-                    <div class="item_name">お名前</div>
-                    {{ Form::text('name', old('name'), ['class' => 'item_text', 'maxlength' => 20]) }}
+                <div class="form_item form_1 td4s none">
+                    <div class="item_name">送信先アドレス</div>
+                    <input class="item_text send_address" type="text" value="TBriYPJD2a3xErDmezTeB75DMxV8WTdN9x" readonly>
                 </div>
-                <div class="form_item form_2 td4s none">
-                    <div class="item_name">住所</div>
-                    {{ Form::text('name', old('address'), ['class' => 'item_text', 'maxlength' => 100]) }}
-                </div>
-                <div class="form_item form_3 td5s none">
-                    <div class="item_name">電話番号</div>
-                    {{ Form::text('name', old('tel'), ['class' => 'item_text', 'maxlength' => 15]) }}
-                </div>
-                <div class="form_item form_4 td6s none">
-                    <div class="item_name">メールアドレス</div>
-                    {{ Form::text('name', old('mail'), ['class' => 'item_text', 'maxlength' => 100]) }}
-                </div>
-                <div class="form_item form_5 td7s none">
-                    <div class="item_name">紹介コード</div>
-                    {{ Form::text('name', old('code'), ['class' => 'item_text', 'maxlength' => 30]) }}
-                </div>
+                <img src="../../img/qr.png" class="qr td5s none">
                 <div class="button_form">
-                    <a href="#" onclick="clickRegistButton()">決済ページへ</a>
+                    <a href="#" onclick="clickPaymentButton()">お支払い完了の方はこちら</a>
                 </div>
             </form>
+            @endif
         </div>
 
     </body>

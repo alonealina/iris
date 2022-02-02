@@ -60,6 +60,48 @@ li {
     color: #FFFFFF;
 }
 
+.pay_price {
+    margin:20px auto;
+    text-align: center;
+    font: normal normal normal 22px/37px Hiragino Sans;
+    color: #FFFFFF;
+}
+
+.pay_int {
+    font: normal normal normal 26px/37px Hiragino Sans;
+    display: inline-block;
+}
+
+.qr {
+    width:250px;
+    display: block;
+    margin:30px auto;
+}
+
+#txid_form {
+}
+
+.complete_text {
+    max-width:600px;
+    margin:40px auto;
+    text-align: center;
+    font: normal normal normal 17px/30px Hiragino Sans;
+    color: #FFFFFF;
+}
+
+.mail_address {
+    display: inline-block;
+    text-align: center;
+    font: normal normal normal 20px/30px Hiragino Sans;
+    color: #FFFFFF;
+    border-bottom:solid;
+    border-width:1px;
+}
+
+.mail_div {
+    text-align: center;
+}
+
 .form_item {
     width:360px;
     margin:0 auto 10px auto;
@@ -84,6 +126,10 @@ li {
     border: 1px solid #ced4da;
     border-radius: 10px;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.send_address {
+    letter-spacing: -0.3px;
 }
 
 .button_form {
