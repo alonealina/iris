@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () { return view('app_form'); });
+Route::post('app_store', 'App\Http\Controllers\IrisController@app_store')->name('app_store');
+Route::get('settle', 'App\Http\Controllers\IrisController@settle')->name('settle');
