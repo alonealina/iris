@@ -23,3 +23,8 @@ function clickTxidButton() {
   document.forms.txid_form.submit();
 }
 
+function copy() {
+  var copy_text = document.getElementById('copy');
+  copy_text.select();
+  document.execCommand('copy');
+}

@@ -25,7 +25,8 @@
                 @csrf
                 <div class="form_item form_1 td4s none">
                     <div class="item_name">送信先アドレス</div>
-                    <input class="item_text send_address" type="text" value="TBriYPJD2a3xErDmezTeB75DMxV8WTdN9x" readonly>
+                    <input id="copy" class="item_text send_address" type="text" value="TBriYPJD2a3xErDmezTeB75DMxV8WTdN9x" readonly>
+                    <a href="#" onclick="copy()"><img src="../../img/copy.png" class="copy"></a>
                 </div>
                 <img src="../../img/qr.png" class="qr td5s none">
                 <div class="button_form td6s none">

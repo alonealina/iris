@@ -54,12 +54,7 @@ class IrisController extends Controller
 
     public function settle()
     {
-        $id = Session::get('id');
-        if (is_null($id)) {
-            return redirect('/');
-        } else {
             return view('settle_form');
-        }
     }
 
     public function confirm_post(Request $request)
