@@ -10,7 +10,7 @@ Route::get('confirm', 'App\Http\Controllers\IrisController@confirm')->name('conf
 Route::post('txid_store', 'App\Http\Controllers\IrisController@txid_store')->name('txid_store');
 Route::get('complete', 'App\Http\Controllers\IrisController@complete')->name('complete');
 
-Route::get('admin/app_list', 'App\Http\Controllers\IrisController@app_list')->name('admin.app_list');
+Route::get('admin/app_list', 'App\Http\Controllers\IrisController@app_list')->name('admin.app_list')->middleware('login');
 
 // ログイン
 Route::get('admin/login', function () {

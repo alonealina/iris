@@ -14,6 +14,9 @@
         <header class="mb-4">
             <nav class="header_content">
                 <a href="{{ route('admin.app_list') }}"><img src="../../img/logo_header.png" class="logo_header"></a>
+                <div class="logout_button btn">
+                    <a href="{{ route('admin.logout') }}">Logout</a>
+                </div>
                 <div class="page_title">申し込み管理ページ</div>
             </nav>
         </header>
