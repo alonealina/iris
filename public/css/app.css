@@ -81,6 +81,13 @@ li {
 #txid_form {
 }
 
+.txid_explain {
+    margin-top: 20px;
+    text-align: center;
+    font: normal normal normal 15px/26px Hiragino Sans;
+    color: #FFFFFF;
+}
+
 .complete_text {
     max-width:600px;
     margin:40px auto;
@@ -156,6 +163,13 @@ li {
     text-decoration:none;
     transition: .5s;
     opacity:0.5;
+}
+
+.error_message {
+    font-size: 15px;
+    font-weight: bold;
+    color:red;
+    text-align: center;
 }
 
 .td1s {

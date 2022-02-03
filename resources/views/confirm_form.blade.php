@@ -14,25 +14,27 @@
     <body>
         <div id="content">
             <img src="../../img/logo.png" class="logo td1s none">
-            <div class="form_name td2s none">お支払い確認{{session('id')}}</div>
+            <div class="form_name td2s none">お支払い確認</div>
 
-            @if(!Session::has('id'))
             <form class="txid_form" name="txid_form" action="{{ route('txid_store') }}" method="post" enctype="multipart/form-data">
+                @if(!is_null(old('id')))
+                {{ Form::hidden('id', old('id')) }}
+                @else
                 {{ Form::hidden('id', session('id')) }}
+                @endif
                 @csrf
                 @if($errors->has('txid'))
-                <div class="comment_error">{{ $errors->first('txid') }}</div>
+                <div class="error_message td3s none">{{ $errors->first('txid') }}</div>
                 @endif
                 <div class="form_item form_1 td3s none">
                     <div class="item_name">TXID</div>
                     {{ Form::text('txid', old('txid'), ['class' => 'item_text', 'maxlength' => 50]) }}
                 </div>
-                <div class="txid_explain">上記にお支払いのTXIDをご入力下さい。</div>
-                <div class="button_form">
+                <div class="txid_explain td4s none">上記にお支払いのTXIDをご入力下さい。</div>
+                <div class="button_form td5s none">
                     <a href="#" onclick="clickTxidButton()">TXIDを送信する</a>
                 </div>
             </form>
-            @endif
         </div>
 
     </body>

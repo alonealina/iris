@@ -8,6 +8,7 @@ use App\Models\Application;
 use App\Models\Adminuser;
 use DB;
 use Mail;
+use Session;
 
 class IrisController extends Controller
 {
@@ -53,7 +54,12 @@ class IrisController extends Controller
 
     public function settle()
     {
-        return view('settle_form');
+        $id = Session::get('id');
+        if (is_null($id)) {
+            return redirect('/');
+        } else {
+            return view('settle_form');
+        }
     }
 
     public function confirm_post(Request $request)
@@ -61,9 +67,14 @@ class IrisController extends Controller
         return redirect()->to('confirm')->with('id', $request->id);
     }
 
-    public function confirm()
+    public function confirm(Request $request)
     {
-        return view('confirm_form');
+        $id = Session::get('id');
+        if (is_null($id) && is_null($request->old('id'))) {
+            return redirect('/');
+        } else {
+            return view('confirm_form');
+        }
     }
 
     public function txid_store(Request $request)
@@ -89,7 +100,7 @@ class IrisController extends Controller
         try {
             $application->update($fill_data);
             DB::commit();
-            return redirect()->to('complete');
+            return redirect()->to('complete')->with('id', $request['id']);
         } catch (\Exception $e) {
             DB::rollback();
         }
@@ -97,7 +108,12 @@ class IrisController extends Controller
 
     public function complete()
     {
-        return view('complete');
+        $id = Session::get('id');
+        if (is_null($id)) {
+            return redirect('/');
+        } else {
+            return view('complete');
+        }
     }
 
     public function login(Request $request)

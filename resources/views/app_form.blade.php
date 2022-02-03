@@ -18,6 +18,18 @@
 
             <form name="app_form" action="{{ route('app_store') }}" method="post" enctype="multipart/form-data">
                 @csrf
+                @if($errors->has('name'))
+                <div class="error_message td3s none">{{ $errors->first('name') }}</div>
+                @endif
+                @if($errors->has('address'))
+                <div class="error_message td3s none">{{ $errors->first('address') }}</div>
+                @endif
+                @if($errors->has('tel'))
+                <div class="error_message td3s none">{{ $errors->first('tel') }}</div>
+                @endif
+                @if($errors->has('mail'))
+                <div class="error_message td3s none">{{ $errors->first('mail') }}</div>
+                @endif
                 <div class="form_item form_1 td3s none">
                     <div class="item_name">お名前</div>
                     {{ Form::text('name', old('name'), ['class' => 'item_text', 'maxlength' => 20]) }}

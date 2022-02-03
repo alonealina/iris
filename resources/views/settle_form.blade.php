@@ -20,7 +20,6 @@
                 購入金額：<div class="pay_int">1,000</div> USDT
             </div>
 
-            @if(!Session::has('id'))
             <form name="pay_form" action="{{ route('confirm_post') }}" method="post" enctype="multipart/form-data">
                 {{ Form::hidden('id', session('id')) }}
                 @csrf
@@ -29,11 +28,10 @@
                     <input class="item_text send_address" type="text" value="TBriYPJD2a3xErDmezTeB75DMxV8WTdN9x" readonly>
                 </div>
                 <img src="../../img/qr.png" class="qr td5s none">
-                <div class="button_form">
+                <div class="button_form td6s none">
                     <a href="#" onclick="clickPaymentButton()">お支払い完了の方はこちら</a>
                 </div>
             </form>
-            @endif
         </div>
 
     </body>

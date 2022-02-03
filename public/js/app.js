@@ -7,6 +7,8 @@ $(function () {
   setTimeout(function(){$('.qr').removeClass('none');},1000);
   setTimeout(function(){$('.complete_text').removeClass('none');},1000);
   setTimeout(function(){$('.mail_address').removeClass('none');},1000);
+  setTimeout(function(){$('.txid_explain').removeClass('none');},1000);
+  setTimeout(function(){$('.error_message').removeClass('none');},1000);
 });
   
 function clickRegistButton() {
