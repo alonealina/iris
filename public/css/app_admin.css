@@ -1,0 +1,212 @@
+
+html {
+    background: #F7F7F7 0% 0% no-repeat padding-box;
+}
+
+.header_content {
+    width:100%;
+    text-align:center;
+    margin: 0 auto;
+    height:90px;
+    font: normal normal normal 22px/36px Hiragino Sans;
+    color: #FFFFFF;
+    position: fixed;
+    top:0px;
+    z-index: 9999;
+    background: #181C25 0% 0% no-repeat padding-box;
+    display: flex;
+}
+
+
+.logo_header {
+    margin-top: 15px;
+    margin-left: 50px;
+    height: 60px;
+}
+
+.page_title {
+    margin-top: 28px;
+    margin-left: auto;
+    margin-right: 70px;
+}
+
+#admin_content {
+    margin-left: 15%;
+    margin-right: 15%;
+    width:70%;
+    top: 200px;
+    position: absolute;
+}
+
+.app_list {
+    background: #fff;
+    margin-top: 30px;
+    width: 100%;
+    font: normal normal normal 14px/21px Hiragino Sans;
+    color: #262626;
+}
+
+.app_list_column {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: #CCCCCC 1px solid;
+}
+
+.app_item {
+    font: normal normal normal 10px/12px Hiragino Sans;
+    color: #333333;
+    border-left: solid 1px #F7F7F7;
+    border-right: solid 1px #F7F7F7;
+}
+
+.app_head {
+    font: normal normal bold 10px/12px Hiragino Sans;
+    color: #333333;
+    border-left: solid 1px #F7F7F7;
+    border-right: solid 1px #F7F7F7;
+}
+
+.app_item_main {
+    font: normal normal bold 11px/13px Hiragino Sans;
+    text-decoration:underline;
+}
+
+.app_list_name {
+    width: 10%;
+}
+
+.app_list_address {
+    width: 18%;
+}
+
+.app_list_tel {
+    width: 12%;
+}
+
+.app_list_mail {
+    width: 15%;
+}
+
+.app_list_code {
+    width: 10%;
+}
+
+.app_list_txid {
+    width: 20%;
+}
+
+.app_list_created {
+    width: 15%;
+}
+
+.app_item_name {
+    margin: 20px;
+    text-align: center;
+    overflow-wrap:  break-word;
+}
+
+.border_bottom_column {
+    border-bottom: #CCCCCC 2px solid
+}
+
+.edit_button, .delete_button {
+    margin:13px 5px;
+}
+
+.app_paginate {
+    background: #FFF;
+    padding-top:20px;
+    margin-bottom: 100px;
+}
+
+.app_gray {
+    color: #7C7C7C;
+}
+
+.flex_form_item {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.felx_form_title {
+    font: normal normal normal 14px/15px Hiragino Sans;
+    color: #262626;
+    margin:15px 0 5px 40px;
+    width:120px;
+}
+
+.felx_form_content {
+    margin:10px 0 5px 40px;
+}
+
+.flex_app_title {
+    padding-top:20px;
+}
+
+.flex_app_content {
+    padding-top:10px;
+}
+
+.app_title_input {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    height: 35px;
+    padding: 0.375rem 0.75rem;
+}
+
+.app_title_input, .app_content_input {
+    width: 620px;
+}
+
+select {
+    font: normal normal normal 14px/21px Hiragino Sans;
+    color: #262626;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    height: 35px;
+    width: 130px;
+    margin-bottom: 30px;
+}
+
+.regist_button {
+    margin-bottom: 20px;
+}
+
+.login_form {
+    background-color: #FFFFFF;
+    width: 600px;
+    border: 1px solid #20A1B6;
+    border-radius: 20px;
+    padding:0 70px;
+    margin: auto;
+}
+
+.login_logo {
+    margin: 40px auto 20px auto;
+    width: 150px;
+    display: block;
+}
+
+.login_form_name {
+    font-size: 14px;
+}
+
+.login_button {
+    color:#FFFFFF;
+    background: #20A1B6 0% 0% no-repeat padding-box;
+    border-radius: 50px;
+    width:100%;
+    height: 40px;
+    margin-bottom: 60px;
+    margin-top:20px;
+}
+
+.logout_button {
+    margin-left: auto;
+    margin-right: 0px;
+}
+
+.button_list_index {
+    display: flex;
+}

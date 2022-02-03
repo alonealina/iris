@@ -111,6 +111,15 @@ class IrisController extends Controller
         }
     }
 
+    public function app_list()
+    {
+        $app_list = Application::orderBy('created_at', 'desc')->paginate(15);
+        return view('app_list', [
+            'app_list' => $app_list,
+        ]);
+    }
+
+
     public function login(Request $request)
     {
 
@@ -119,7 +128,7 @@ class IrisController extends Controller
             if ($request->password == $admin_user->password) {
                 // セッション
                 session(['login_id' => $admin_user->login_id]);
-                return redirect('admin/news_list'); 
+                return redirect('admin/app_list'); 
             }
         }
 
