@@ -56,9 +56,14 @@ class IrisController extends Controller
         return view('settle_form');
     }
 
-    public function confirm(Request $request)
+    public function confirm_post(Request $request)
     {
-        return view('confirm_form')->with('id', $request->id);
+        return redirect()->to('confirm')->with('id', $request->id);
+    }
+
+    public function confirm()
+    {
+        return view('confirm_form');
     }
 
     public function txid_store(Request $request)

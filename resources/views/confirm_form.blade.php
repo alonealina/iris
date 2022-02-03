@@ -20,6 +20,9 @@
             <form class="txid_form" name="txid_form" action="{{ route('txid_store') }}" method="post" enctype="multipart/form-data">
                 {{ Form::hidden('id', session('id')) }}
                 @csrf
+                @if($errors->has('txid'))
+                <div class="comment_error">{{ $errors->first('txid') }}</div>
+                @endif
                 <div class="form_item form_1 td3s none">
                     <div class="item_name">TXID</div>
                     {{ Form::text('txid', old('txid'), ['class' => 'item_text', 'maxlength' => 50]) }}

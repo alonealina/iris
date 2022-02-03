@@ -21,7 +21,7 @@
             </div>
 
             @if(!Session::has('id'))
-            <form name="pay_form" action="{{ route('confirm') }}" method="post" enctype="multipart/form-data">
+            <form name="pay_form" action="{{ route('confirm_post') }}" method="post" enctype="multipart/form-data">
                 {{ Form::hidden('id', session('id')) }}
                 @csrf
                 <div class="form_item form_1 td4s none">
