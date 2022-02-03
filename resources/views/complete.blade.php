@@ -23,7 +23,7 @@
             <div class="complete_text td4s none">メールが届かない場合は、下記のメールアドレスまでお問い合わせ願います。</div>
 
             <div class="mail_div">
-                <div class="mail_address td5s none">info@example.com</div>
+                <div class="mail_address td5s none">support@iris-system.org</div>
             </div>
         </div>
 
