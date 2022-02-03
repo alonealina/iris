@@ -39,7 +39,7 @@ li {
 }
 
 #content {
-    background: no-repeat url("../../img/bg.png");
+    background: no-repeat url("../../img/bg.jpg");
     background-position: center;
 	background-repeat: no-repeat;
     z-index:100;
