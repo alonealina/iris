@@ -80,7 +80,7 @@
                 @endforeach
             </div>
             <div class="d-flex justify-content-center app_paginate">
-            {{ $app_list->links('pagination::bootstrap-4') }}
+            {{ $app_list->appends(request()->query())->links('pagination::bootstrap-4') }}
             </div>
         </div>
 
