@@ -28,3 +28,7 @@ function copy() {
   copy_text.select();
   document.execCommand('copy');
 }
+
+function clickSearchButton() {
+  document.forms.search_form.submit();
+}

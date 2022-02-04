@@ -21,8 +21,14 @@
             </nav>
         </header>
 
-        <div id="admin_content">
+        <form id="form" name="search_form" action="{{ route('admin.app_list') }}" method="get">
+            <div class="search_box">
+                <a href="#" onclick="clickSearchButton()"><img src="../../img/search_btn.png" class="search_btn"></a>
+                {{ Form::text('freeword', old('freeword'), ['class' => 'form_freeword', 'maxlength' => 50, 'placeholder' => 'キーワード検索']) }}
+            </div>
+        </form>
 
+        <div id="admin_content">
             <div class="app_list">
                 <div class="app_list_column border_bottom_column">
                     <div class="app_list_name app_head">

@@ -11,6 +11,7 @@ Route::post('txid_store', 'App\Http\Controllers\IrisController@txid_store')->nam
 Route::get('complete', 'App\Http\Controllers\IrisController@complete')->name('complete');
 
 Route::get('admin/app_list', 'App\Http\Controllers\IrisController@app_list')->name('admin.app_list')->middleware('login');
+Route::get('admin/search', 'App\Http\Controllers\IrisController@search')->name('admin.search')->middleware('login');
 
 // ログイン
 Route::get('admin/login', function () {
