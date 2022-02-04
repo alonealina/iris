@@ -46,10 +46,7 @@ html {
     float: right;
 }
 
-::placeholder {
-    font: normal normal normal 12px/15px Hiragino Sans;
-    color: #AAA;
-}
+
 
 .search_btn {
     margin: 2px 10px;
@@ -63,6 +60,14 @@ html {
     top: 170px;
     position: absolute;
     pointer-events: none;
+}
+
+#login_content {
+    margin-left: 15%;
+    margin-right: 15%;
+    width:70%;
+    top: 170px;
+    position: absolute;
 }
 
 .app_list {

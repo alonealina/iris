@@ -12,7 +12,7 @@
 
 
     <body>
-      <div id="admin_content">
+      <div id="login_content">
         <div class="login_form" id="login_form">
           <img src="{{ asset('img/login_logo.png') }}" class="login_logo" alt="">
           {{-- エラーメッセージ --}}
@@ -41,17 +41,6 @@
       </div>
     </div>
 
-    <script>
-      var list = document.getElementById('flexible-list-main');
-      var form = document.getElementById('login_form');
-      list.style.height = window.innerHeight + 'px';
-      list.style.position = 'relative';
-      form.style.position = 'absolute';
-      form.style.top = '50%';
-      form.style.left = '50%';
-      form.style.transform = 'translateY(-50%) translateX(-50%)';
-
-    </script>
 
 
 
