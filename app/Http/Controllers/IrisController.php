@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Application;
 use App\Models\Adminuser;
+use App\Rules\PhoneCheck;
 use DB;
 use Mail;
 use Session;
@@ -18,8 +19,8 @@ class IrisController extends Controller
         $rules = [
             'name' => 'required',
             'address' => 'required',
-            'tel' => 'required',
-            'mail' => 'required',
+            'tel' => ['required', new PhoneCheck()],
+            'mail' => ['required', 'email:strict,dns']
         ];
 
         $messages = [
@@ -27,6 +28,7 @@ class IrisController extends Controller
             'address.required' => '住所を入力してください',
             'tel.required' => '電話番号を入力してください',
             'mail.required' => 'メールアドレスを入力してください',
+            'mail.email' => 'メールアドレスが不正です',
         ];
 
         Validator::make($request->all(), $rules, $messages)->validate();
