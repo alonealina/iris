@@ -57,9 +57,8 @@ html {
     margin-left: 15%;
     margin-right: 15%;
     width:70%;
-    top: 170px;
+    top: 190px;
     position: absolute;
-    pointer-events: none;
 }
 
 #login_content {
@@ -72,7 +71,7 @@ html {
 
 .app_list {
     background: #fff;
-    margin-top: 30px;
+    margin-top: 10px;
     width: 100%;
     font: normal normal normal 14px/21px Hiragino Sans;
     color: #262626;
