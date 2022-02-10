@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class LoginMiddleware
+class LoginAdminMiddleware
 {
     /**
      * Handle an incoming request.
@@ -17,8 +17,8 @@ class LoginMiddleware
     public function handle(Request $request, Closure $next)
     {
         // 未ログイン
-        if(!session()->has('mail')){
-            return redirect(url('login'));
+        if(!session()->has('login_id')){
+            return redirect(url('admin/login'));
         }
 
         return $next($request);

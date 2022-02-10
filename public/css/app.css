@@ -219,3 +219,202 @@ li {
     transition-delay: .8s;
 }
 
+.login_form {
+    background-color: #FFFFFF;
+    max-width: 600px;
+    border: 1px solid #20A1B6;
+    border-radius: 20px;
+    padding:0 70px;
+    margin: auto;
+    top: 170px;
+    position: relative;
+}
+
+.reminder_content {
+    background-color: #FFFFFF;
+    max-width: 600px;
+    border: 1px solid #20A1B6;
+    border-radius: 20px;
+    padding:0 20px;
+    margin: auto;
+    top: 170px;
+    position: relative;
+}
+
+.dashboard {
+    background-color: #FFFFFF;
+    max-width: 800px;
+    border: 1px solid #20A1B6;
+    border-radius: 20px;
+    padding:0 35px;
+    margin: auto;
+    top: 170px;
+    position: relative;
+}
+
+.dashboard_header {
+    margin: 30px 0;
+    display: flex;
+}
+
+.login_logo {
+    margin: 40px auto 20px auto;
+    width: 150px;
+    display: block;
+}
+
+.login_form_name, .dashboard_form_name {
+    font-size: 14px;
+}
+
+.dashboard_form_name {
+    margin-bottom: 5px;
+}
+
+.dashboard_form_column {
+    max-width: 400px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.dashboard_button_column {
+    max-width: 350px;
+    margin: auto;
+}
+
+.login_button {
+    color:#FFFFFF;
+    background: #20A1B6 0% 0% no-repeat padding-box;
+    border-radius: 0px;
+    width:100%;
+    height: 50px;
+    margin-bottom: 30px;
+    margin-top:20px;
+}
+
+.reminder_a {
+    text-align: center;
+    font: normal normal normal 15px/2px Hiragino Sans;
+    margin-bottom: 50px;
+    display: block;
+    color: #262626;
+    text-decoration: underline;
+}
+
+.reminder_text {
+    text-align: center;
+    font: normal normal normal 15px/24px Hiragino Sans;
+    margin: 50px 0;
+    display: block;
+    color: #262626;
+}
+
+.reminder_mail {
+    text-align: center;
+    text-decoration: underline;
+    font: normal normal normal 24px/24px Hiragino Sans;
+    letter-spacing: 0px;
+    color: #262626;
+    margin-bottom: 70px;
+}
+
+.back_login_button {
+    margin: auto;
+    display: block;
+    width: 320px;
+    height: 90px;
+}
+
+.back_login_button a {
+    font: normal normal normal 15px/26px Hiragino Sans;
+    letter-spacing: 1.05px;
+    display: block;
+    width: 100%;
+    height: 40px;
+    line-height: 42px;
+    background: #20A1B6 0% 0% no-repeat padding-box;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    float: left;
+}
+    
+.connect_button {
+    color: #FFFFFF;
+    background: #20A1B6 0% 0% no-repeat padding-box;
+    border-radius: 0px;
+    width: 300px;
+    height: 50px;
+    margin: auto;
+    margin-bottom: 50px;
+    margin-top: 25px;
+    display: block;
+}
+
+.button_flex {
+    height:55px;
+    display: flex;
+}
+
+.logout_button  {
+    margin-left: auto;
+}
+
+.logout_button a {
+    font: normal normal normal 15px/26px Hiragino Sans;
+    letter-spacing: 1.05px;
+    display: block;
+    width: 130px;
+    height: 40px;
+    line-height: 42px;
+    background: #20A1B6 0% 0% no-repeat padding-box;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    margin: 18px 0;
+    float: right;
+}
+
+.off_button {
+    margin-left: auto;
+}
+
+.on_button a {
+    font: normal normal normal 15px/26px Hiragino Sans;
+    letter-spacing: 1.05px;
+    display: block;
+    width: 150px;
+    height: 40px;
+    line-height: 42px;
+    background: #B50000 0% 0% no-repeat padding-box;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    float: left;
+}
+
+.off_button a {
+    font: normal normal normal 15px/26px Hiragino Sans;
+    letter-spacing: 1.05px;
+    display: block;
+    width: 150px;
+    height: 40px;
+    line-height: 42px;
+    background: #203DB6 0% 0% no-repeat padding-box;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    float: left;
+}
+
+
+.off_button {
+    margin-left: auto;
+}
+
+.active_text {
+    font: normal normal normal 13px/20px Hiragino Sans;
+    color: #262626;
+    text-align: center;
+    margin-bottom: 30px;
+}

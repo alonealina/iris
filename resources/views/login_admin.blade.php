@@ -29,7 +29,7 @@
             @csrf  
             <div class="form-group">
               <div class="login_form_name">Login ID</div>
-              <input type="text" class="form-control" id="user_email" name="login_id">
+              <input type="text" class="form-control" name="login_id">
             </div>     
             <div class="form-group">
             <div class="login_form_name">Password</div>
@@ -39,10 +39,6 @@
           </form>
         </div>
       </div>
-    </div>
-
-
-
 
     </body>
 

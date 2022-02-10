@@ -118,6 +118,11 @@ class IrisController extends Controller
         }
     }
 
+    public function dashboard()
+    {
+        return view('dashboard');
+    }
+
     public function app_list(Request $request)
     {
         $filter_array = $request->all();
@@ -140,9 +145,28 @@ class IrisController extends Controller
         ]);
     }
 
-    public function login(Request $request)
+    public function login_user(Request $request)
     {
+        $user = Application::where('mail', $request->login_id)->first();
+        if (isset($user)) {
+            if ($request->password == $user->pass) {
+                // セッション
+                session(['mail' => $user->mail]);
+                return redirect('dashboard'); 
+            }
+        }
 
+        return redirect('login', ['login_error' => '1']);
+    }
+    
+    public function logout_user()
+    {
+        session()->forget('mail');
+        return redirect('login');
+    }
+
+    public function login_admin(Request $request)
+    {
         $admin_user = Adminuser::where('login_id', $request->login_id)->first();
         if (isset($admin_user)) {
             if ($request->password == $admin_user->password) {
@@ -155,7 +179,7 @@ class IrisController extends Controller
         return redirect('admin/login', ['login_error' => '1']);
     }
     
-    public function logout(Request $request)
+    public function logout_admin()
     {
         session()->forget('login_id');
         return redirect('admin/login');
