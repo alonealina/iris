@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Application;
 use App\Models\Adminuser;
+use App\Rules\AlphaNumCheck;
 use App\Rules\PhoneCheck;
 use DB;
 use Mail;
@@ -20,7 +21,8 @@ class IrisController extends Controller
             'name' => 'required',
             'address' => 'required',
             'tel' => ['required', new PhoneCheck()],
-            'mail' => ['required', 'email:strict,dns']
+            'mail' => ['required', 'email:strict,dns'],
+            'pass' => ['required', 'min:6', new AlphaNumCheck(), ],
         ];
 
         $messages = [
@@ -29,6 +31,8 @@ class IrisController extends Controller
             'tel.required' => '電話番号を入力してください',
             'mail.required' => 'メールアドレスを入力してください',
             'mail.email' => 'メールアドレスを正しく入力してください',
+            'pass.required' => 'パスワードを入力してください',
+            'pass.min' => 'パスワードは6文字以上入力してください',
         ];
 
         Validator::make($request->all(), $rules, $messages)->validate();
@@ -42,6 +46,7 @@ class IrisController extends Controller
             'tel' => $request['tel'],
             'mail' => $request['mail'],
             'code' => $request['code'],
+            'pass' => $request['pass'],
         ];
 
         DB::beginTransaction();
@@ -56,7 +61,7 @@ class IrisController extends Controller
 
     public function settle()
     {
-            return view('settle_form');
+        return view('settle_form');
     }
 
     public function confirm_post(Request $request)

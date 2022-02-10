@@ -27,6 +27,9 @@
                 @if($errors->has('mail'))
                 <div class="error_message td3s none">{{ $errors->first('mail') }}</div>
                 @endif
+                @if($errors->has('pass'))
+                <div class="error_message td3s none">{{ $errors->first('pass') }}</div>
+                @endif
                 <div class="form_item form_1 td3s none">
                     <div class="item_name">お名前</div>
                     {{ Form::text('name', old('name'), ['class' => 'item_text', 'maxlength' => 20]) }}
@@ -40,8 +43,12 @@
                     {{ Form::text('tel', old('tel'), ['class' => 'item_text', 'maxlength' => 15]) }}
                 </div>
                 <div class="form_item form_4 td6s none">
-                    <div class="item_name">メールアドレス</div>
+                    <div class="item_name">メールアドレス（ログインIDになります）</div>
                     {{ Form::text('mail', old('mail'), ['class' => 'item_text', 'maxlength' => 100]) }}
+                </div>
+                <div class="form_item form_4 td6s none">
+                    <div class="item_name">希望パスワード（英数字6文字以上）</div>
+                    {{ Form::text('pass', old('pass'), ['class' => 'item_text', 'maxlength' => 20]) }}
                 </div>
                 <div class="form_item form_5 td7s none">
                     <div class="item_name">紹介コード</div>
