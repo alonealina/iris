@@ -16,11 +16,9 @@
         <div class="login_form" id="login_form">
           <img src="{{ asset('img/login_logo.png') }}" class="login_logo" alt="">
           {{-- エラーメッセージ --}}
-          @if (isset($login_error))
+          @if (session()->has('login_error'))
             <div id="error_explanation" class="text-danger">
-              <ul>
-                <li>メールアドレスまたはパスワードが一致しません。</li>
-              </ul>
+              ログインIDまたはパスワードが一致しません。
             </div>
           @endif
           

@@ -156,7 +156,7 @@ class IrisController extends Controller
             }
         }
 
-        return redirect('login', ['login_error' => '1']);
+        return redirect('login')->with(['login_error' => 1]);
     }
     
     public function logout_user()
@@ -176,7 +176,7 @@ class IrisController extends Controller
             }
         }
 
-        return redirect('admin/login', ['login_error' => '1']);
+        return redirect('admin/login')->with(['login_error' => 1]);
     }
     
     public function logout_admin()
