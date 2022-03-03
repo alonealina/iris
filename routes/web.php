@@ -12,6 +12,7 @@ Route::get('complete', 'App\Http\Controllers\IrisController@complete')->name('co
 Route::get('dashboard', 'App\Http\Controllers\IrisController@dashboard')->name('dashboard')->middleware('login_user');
 
 Route::get('admin/app_list', 'App\Http\Controllers\IrisController@app_list')->name('admin.app_list')->middleware('login_admin');
+Route::get('admin/app_list_delete', 'App\Http\Controllers\IrisController@app_list_delete')->name('admin.app_list_delete')->middleware('login_admin');
 Route::get('admin/search', 'App\Http\Controllers\IrisController@search')->name('admin.search')->middleware('login_admin');
 
 // ユーザーログイン

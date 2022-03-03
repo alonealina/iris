@@ -32,8 +32,8 @@ html {
 
 .search_box {
     top: 150px;
-    width: 85%;
-    margin-right: 15%;
+    width: 20%;
+    right: 15%;
     position: absolute;
 }
 
@@ -102,12 +102,21 @@ html {
     text-decoration:underline;
 }
 
+.app_list_chk {
+    width: 2%;
+}
+
+input[type=checkbox] {
+    margin:20px auto;
+    display: block;
+}
+
 .app_list_name {
     width: 10%;
 }
 
 .app_list_address {
-    width: 18%;
+    width: 16%;
 }
 
 .app_list_tel {
@@ -238,6 +247,29 @@ select {
 }
 
 .logout_button a {
+    font: normal normal normal 15px/26px Hiragino Sans;
+    letter-spacing: 1.05px;
+    display: block;
+    width: 154px;
+    height: 40px;
+    line-height: 42px;
+    background: #20A1B6 0% 0% no-repeat padding-box;
+    color: #fff;
+    border-radius: 50px;
+    text-decoration: none;
+    text-align: center;
+    margin: 18px 0;
+    float: right;
+}
+
+.delete_button  {
+    margin-left: auto;
+}
+
+.delete_button a {
+    position: absolute;
+    top: 120px;
+    left: 16%;
     font: normal normal normal 15px/26px Hiragino Sans;
     letter-spacing: 1.05px;
     display: block;

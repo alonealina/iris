@@ -145,6 +145,25 @@ class IrisController extends Controller
         ]);
     }
 
+    public function app_list_delete(Request $request)
+    {
+        $request = $request->all();
+        $chk_list = isset($request['chk']) ? $request['chk'] : null;
+        if (!empty($chk_list)) {
+            DB::beginTransaction();
+            foreach ($chk_list as $chk) {
+                try {
+                    Application::where('id', $chk)->delete();
+                } catch (\Exception $e) {
+                    DB::rollback();
+                }
+            }
+            DB::commit();
+        }
+
+        return redirect('admin/app_list')->with('message', '申し込みを削除しました');
+    }
+
     public function login_user(Request $request)
     {
         $user = Application::where('mail', $request->login_id)->first();
