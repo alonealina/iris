@@ -22,10 +22,10 @@
                 @csrf
                 <div class="form_item form_1 td4s none">
                     <div class="item_name">送信先アドレス</div>
-                    <input id="copy" class="item_text send_address" type="text" value="TBriYPJD2a3xErDmezTeB75DMxV8WTdN9x" readonly>
+                    <input id="copy" class="item_text send_address" type="text" value="TABC3Y5HopzMKriKqzsNbnKBvMm5PLfHTt" readonly>
                     <a href="#" onclick="copy()"><img src="../../img/copy.png" class="copy"></a>
                 </div>
-                <img src="../../img/qr.png" class="qr td5s none">
+                <img src="../../img/qr.jpg" class="qr td5s none">
                 <div class="button_form td6s none">
                     <a href="#" onclick="clickPaymentButton()">お支払い完了の方はこちら</a>
                 </div>
