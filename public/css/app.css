@@ -121,6 +121,13 @@ li {
     margin:0 auto 10px auto;
 }
 
+.uid_explain {
+    margin:20px 0;
+    text-align: center;
+    font: normal normal normal 15px/26px Hiragino Sans;
+    color: #FFFFFF;
+}
+
 .item_name {
     font: normal normal normal 15px/26px Hiragino Sans;
     color: #FFFFFF;
@@ -235,7 +242,7 @@ li {
     max-width: 600px;
     border: 1px solid #20A1B6;
     border-radius: 20px;
-    padding:0 20px;
+    padding:0 70px;
     margin: auto;
     top: 170px;
     position: relative;
@@ -263,8 +270,13 @@ li {
     display: block;
 }
 
-.login_form_name, .dashboard_form_name {
+.login_form_name, .reminder_form_name, .dashboard_form_name {
     font-size: 14px;
+}
+
+.forget_explain {
+    font-size: 18px;
+    text-align: center;
 }
 
 .dashboard_form_name {
@@ -304,7 +316,6 @@ li {
 .reminder_text {
     text-align: center;
     font: normal normal normal 15px/24px Hiragino Sans;
-    margin: 50px 0;
     display: block;
     color: #262626;
 }
@@ -315,7 +326,6 @@ li {
     font: normal normal normal 24px/24px Hiragino Sans;
     letter-spacing: 0px;
     color: #262626;
-    margin-bottom: 70px;
 }
 
 .back_login_button {
@@ -323,6 +333,7 @@ li {
     display: block;
     width: 320px;
     height: 90px;
+    margin-top:50px;
 }
 
 .back_login_button a {

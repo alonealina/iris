@@ -18,8 +18,10 @@ Route::get('admin/search', 'App\Http\Controllers\IrisController@search')->name('
 // ユーザーログイン
 Route::get('login', function () { return view('login_user'); });
 Route::get('reminder', function () { return view('reminder'); });
+Route::get('reminder_comp', function () { return view('reminder_comp'); });
 
 Route::POST('/user_login', 'App\Http\Controllers\IrisController@login_user')->name('login');
+Route::POST('/forget_mail', 'App\Http\Controllers\IrisController@forget_mail')->name('forget_mail');
 Route::get('/user_logout', 'App\Http\Controllers\IrisController@logout_user')->name('logout')->middleware('login_user');
 
 // 管理側ログイン

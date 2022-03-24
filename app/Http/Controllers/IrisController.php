@@ -19,7 +19,8 @@ class IrisController extends Controller
     {
         $rules = [
             'name' => 'required',
-            'address' => 'required',
+            'code' => 'required',
+            'uid' => 'required',
             'tel' => ['required', new PhoneCheck()],
             'mail' => ['required', 'email:strict,dns'],
             'pass' => ['required', 'min:6', new AlphaNumCheck(), ],
@@ -27,7 +28,8 @@ class IrisController extends Controller
 
         $messages = [
             'name.required' => 'お名前を入力してください',
-            'address.required' => '住所を入力してください',
+            'code.required' => '紹介コードを入力してください',
+            'uid.required' => 'Bitget UIDを入力してください',
             'tel.required' => '電話番号を入力してください',
             'mail.required' => 'メールアドレスを入力してください',
             'mail.email' => 'メールアドレスを正しく入力してください',
@@ -42,7 +44,7 @@ class IrisController extends Controller
         $request = $request->all();
         $fill_data = [
             'name' => $request['name'],
-            'address' => $request['address'],
+            'uid' => $request['uid'],
             'tel' => $request['tel'],
             'mail' => $request['mail'],
             'code' => $request['code'],
@@ -108,7 +110,7 @@ class IrisController extends Controller
             $application->update($fill_data);
             DB::commit();
             Mail::send('mail', $data, function($message){
-                $message->to($this->mail)->subject('お問い合わせ通知');
+                $message->to($this->mail)->subject('【 Iris system 】ご登録ありがとうございます！');
             });
 
             return redirect()->to('complete')->with('id', $request['id']);
@@ -142,7 +144,7 @@ class IrisController extends Controller
         }
 
         if (!empty($freeword)) {
-            $app_list = Application::orwhere('name', 'like', "%$freeword%")->orwhere('address', 'like', "%$freeword%")->orwhere('tel', 'like', "%$freeword%")
+            $app_list = Application::orwhere('name', 'like', "%$freeword%")->orwhere('uid', 'like', "%$freeword%")->orwhere('tel', 'like', "%$freeword%")
                 ->orwhere('mail', 'like', "%$freeword%")->orwhere('code', 'like', "%$freeword%")->orwhere('txid', 'like', "%$freeword%")
                 ->orderBy('created_at', 'desc')->paginate(15);
         } else {
@@ -173,6 +175,36 @@ class IrisController extends Controller
         return redirect('admin/app_list')->with('message', '申し込みを削除しました');
     }
 
+    public function forget_mail(Request $request)
+    {
+        $rules = [
+            'name' => 'required',
+            'mail' => 'required',
+            'tel' => 'required',
+            'uid' => 'required',
+        ];
+
+        $messages = [
+            'name.required' => '名前を入力してください',
+            'mail.required' => 'メールアドレスを入力してください',
+            'tel.required' => '電話番号を入力してください',
+            'uid.required' => 'Bitget UIDを入力してください',
+        ];
+
+        Validator::make($request->all(), $rules, $messages)->validate();
+
+        $data = ['name' => $request->name,
+        'mail' => $request->mail,
+        'tel' => $request->tel,
+        'uid' => $request->uid,];
+
+        Mail::send('mail_forget', $data, function($message){
+            $message->to('william_billl2008@yahoo.co.jp')->subject('【 Iris system 】Forget password');
+        });
+
+        return redirect('reminder_comp');
+    }
+    
     public function login_user(Request $request)
     {
         $user = Application::where('mail', $request->login_id)->first();

@@ -13,11 +13,44 @@
             <div class="reminder_content">
                 <img src="{{ asset('img/login_logo.png') }}" class="login_logo" alt="">
 
-                <div class="reminder_text" >Passwordをお忘れの方は以下の<br>メールアドレスにお問い合わせ下さい。</div>
-                <div class="reminder_mail" >support@iris-system.org</div>
-                <div class="back_login_button">
-                    <a href="{{ url('login') }}">Loginページに戻る</a>
+                @if($errors->has('name'))
+                <div class="error_message td3s none">{{ $errors->first('name') }}</div>
+                @endif
+                @if($errors->has('mail'))
+                <div class="error_message td3s none">{{ $errors->first('mail') }}</div>
+                @endif
+                @if($errors->has('tel'))
+                <div class="error_message td3s none">{{ $errors->first('tel') }}</div>
+                @endif
+                @if($errors->has('uid'))
+                <div class="error_message td3s none">{{ $errors->first('uid') }}</div>
+                @endif
+
+                <div class="forget_explain">
+                    下記項目を全てご入力いただき、<br>
+                    送信ボタンを押してください。
                 </div>
+
+                <form action="{{ url('forget_mail') }}" method="post">
+                    @csrf  
+                    <div class="form-group">
+                        <div class="reminder_form_name">名前</div>
+                        <input type="text" class="form-control" name="name">
+                    </div>     
+                    <div class="form-group">
+                        <div class="reminder_form_name">メールアドレス</div>
+                        <input type="text" class="form-control" name="mail">
+                    </div>     
+                    <div class="form-group">
+                        <div class="reminder_form_name">電話番号</div>
+                        <input type="text" class="form-control" name="tel">
+                    </div>     
+                    <div class="form-group">
+                        <div class="reminder_form_name">Bitget UID</div>
+                        <input type="text" class="form-control" name="uid">
+                    </div>     
+                    <input type="submit" value="送信" class="btn login_button">  
+                </form>
             </div>
         </div>
 

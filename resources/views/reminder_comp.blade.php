@@ -10,27 +10,15 @@
     </head>
     <body>
         <div id="content">
-            <div class="login_form" id="login_form">
+            <div class="reminder_content">
                 <img src="{{ asset('img/login_logo.png') }}" class="login_logo" alt="">
-                @if (session()->has('login_error'))
-                <div id="error_explanation" class="text-danger">
-                    ログインIDまたはパスワードが一致しません。
+
+                <div class="reminder_text">確認の上で</div>
+                <div class="reminder_mail">support@iris-system.org</div>
+                <div class="reminder_text">よりご連絡させていただきますのでお待ちください。</div>
+                <div class="back_login_button">
+                    <a href="{{ url('login') }}">Loginページに戻る</a>
                 </div>
-                @endif
-                
-                <form action="{{ url('user_login') }}" method="post">
-                    @csrf  
-                    <div class="form-group">
-                        <div class="login_form_name">Login ID</div>
-                        <input type="text" class="form-control" name="login_id">
-                    </div>     
-                    <div class="form-group">
-                        <div class="login_form_name">Password</div>
-                        <input type="password" class="form-control" id="user_password" name="password">
-                    </div>     
-                    <input type="submit" value="Login" class="btn login_button">  
-                </form>
-                <a class="reminder_a" href="{{ url('reminder') }}">Passwordをお忘れの方はこちら</a>
             </div>
         </div>
 
