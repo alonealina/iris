@@ -61,7 +61,7 @@
                 ※まだBitget UIDをお持ちで無い（登録されて無い）場合は<br>ご紹介者様にお問合せください。
                 </div>
                 <div class="check_form td8s none">
-                    <input type="checkbox" id="check" name="check"> 利用規約を確認しました
+                    <input type="checkbox" id="check" name="check"> <a href="../../pdf/terms.pdf" target="_blank">利用規約</a>を確認しました
                 </div>
                 <div class="button_form td8s none">
                     <a href="#" onclick="clickRegistButton()">決済ページへ</a>
