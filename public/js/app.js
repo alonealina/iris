@@ -16,6 +16,8 @@ $(function () {
 function clickRegistButton() {
   if (document.getElementById("check").checked) {
     document.forms.app_form.submit();
+  } else {
+    alert("利用規約にチェックを入れてください");
   }
 }
 
