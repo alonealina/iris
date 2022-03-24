@@ -121,7 +121,7 @@ li {
     margin:0 auto 10px auto;
 }
 
-.uid_explain {
+.uid_explain, .check_form {
     margin:20px 0;
     text-align: center;
     font: normal normal normal 15px/26px Hiragino Sans;
