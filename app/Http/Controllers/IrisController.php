@@ -98,10 +98,19 @@ class IrisController extends Controller
             'txid' => $request['txid'],
         ];
 
+        $data = ['mail' => $application->mail,
+        'pass' => $application->pass,];
+
+        $this->mail = $application->mail;
+
         DB::beginTransaction();
         try {
             $application->update($fill_data);
             DB::commit();
+            Mail::send('mail', $data, function($message){
+                $message->to($this->mail)->subject('お問い合わせ通知');
+            });
+
             return redirect()->to('complete')->with('id', $request['id']);
         } catch (\Exception $e) {
             DB::rollback();
