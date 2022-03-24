@@ -21,7 +21,6 @@ class Application extends Model
             $this->uid,
             $this->txid,
             $this->created_at,
-            $this->updated_at,
         ];
     }
 }

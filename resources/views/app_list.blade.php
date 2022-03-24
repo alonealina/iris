@@ -53,6 +53,9 @@
                         <div class="app_list_mail app_head">
                             <div class="app_item_name">メールアドレス</div>
                         </div>
+                        <div class="app_list_pass app_head">
+                            <div class="app_item_name">パスワード</div>
+                        </div>
                         <div class="app_list_code app_head">
                             <div class="app_item_name">紹介コード</div>
                         </div>
@@ -64,6 +67,9 @@
                         </div>
                         <div class="app_list_created app_head">
                             <div class="app_item_name">登録日時</div>
+                        </div>
+                        <div class="app_list_btn app_head">
+                            <div class="app_item_name"></div>
                         </div>
                     </div>
                     @foreach($app_list as $app)
@@ -80,6 +86,9 @@
                         <div class="app_list_mail app_item">
                             <div class="app_item_name">{{ $app->mail }}</div>
                         </div>
+                        <div class="app_list_pass app_item">
+                            <div class="app_item_name">{{ $app->pass }}</div>
+                        </div>
                         <div class="app_list_code app_item">
                             <div class="app_item_name">{{ $app->code }}</div>
                         </div>
@@ -91,6 +100,23 @@
                         </div>
                         <div class="app_list_created app_item">
                             <div class="app_item_name">{{ $app->created_at }}</div>
+                        </div>
+                        <div class="app_list_btn app_head">
+                            @if ($app->active_flg)
+                            <div class="on_button">
+                                <a href="#">ACTIVE</a>
+                            </div>
+                            <div class="off_button opa04">
+                                <a href="{{ route('admin.app_active', ['id' => $app->id, 'flg' => 0]) }}">NON ACTIVE</a>
+                            </div>
+                            @else
+                            <div class="on_button opa04">
+                                <a href="{{ route('admin.app_active', ['id' => $app->id, 'flg' => 1]) }}">ACTIVE</a>
+                            </div>
+                            <div class="off_button">
+                                <a href="#">NON ACTIVE</a>
+                            </div>
+                            @endif
                         </div>
                     </div>
                     @endforeach

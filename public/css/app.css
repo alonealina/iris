@@ -390,7 +390,7 @@ li {
     margin-left: auto;
 }
 
-.on_button a {
+.on_button {
     font: normal normal normal 15px/26px Hiragino Sans;
     letter-spacing: 1.05px;
     display: block;
@@ -404,7 +404,7 @@ li {
     float: left;
 }
 
-.off_button a {
+.off_button {
     font: normal normal normal 15px/26px Hiragino Sans;
     letter-spacing: 1.05px;
     display: block;
@@ -418,6 +418,10 @@ li {
     float: left;
 }
 
+
+.opa04 {
+    opacity:0.4;
+}
 
 .off_button {
     margin-left: auto;

@@ -132,7 +132,9 @@ class IrisController extends Controller
 
     public function dashboard()
     {
-        return view('dashboard');
+        $id = Session::get('id');
+        $app = Application::where('id', $id)->first();
+        return view('dashboard', ['app' => $app]);
     }
 
     public function app_list(Request $request)
@@ -198,10 +200,24 @@ class IrisController extends Controller
         return redirect('admin/app_list')->with('message', '申し込みを削除しました');
     }
 
+    public function app_active($id, $flg)
+    {
+        DB::beginTransaction();
+        try {
+            Application::where('id', $id)->update(['active_flg' => $flg]);
+        } catch (\Exception $e) {
+            DB::rollback();
+        }
+
+        DB::commit();
+
+        return redirect('admin/app_list')->with('message', '申し込みを変更しました');
+    }
+
     public function csv_export()
     {
         $apps = Application::where('delete_flg', 0)->orderBy('created_at', 'desc')->get();
-        $cvsList[] = ['お名前', '電話番号', 'メールアドレス', '紹介コード', 'Bitget UID', 'TXID', '作成日時', '更新日時', 
+        $cvsList[] = ['お名前', '電話番号', 'メールアドレス', 'パスワード', '紹介コード', 'Bitget UID', 'TXID', '作成日時', 
         ];
         foreach ($apps as $app) {
             $cvsList[] = $app->outputCsvContent();
@@ -269,6 +285,7 @@ class IrisController extends Controller
         if (isset($user)) {
             if ($request->password == $user->pass) {
                 // セッション
+                session(['id' => $user->id]);
                 session(['mail' => $user->mail]);
                 return redirect('dashboard'); 
             }
@@ -279,6 +296,7 @@ class IrisController extends Controller
     
     public function logout_user()
     {
+        session()->forget('id');
         session()->forget('mail');
         return redirect('login');
     }

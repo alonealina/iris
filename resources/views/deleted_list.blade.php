@@ -31,49 +31,55 @@
             <div id="admin_content">
                 <div class="app_list">
                     <div class="app_list_column border_bottom_column">
-                        <div class="app_list_name app_head">
+                        <div class="app_list_name_deleted app_head">
                             <div class="app_item_name">お名前</div>
                         </div>
-                        <div class="app_list_tel app_head">
+                        <div class="app_list_tel_deleted app_head">
                             <div class="app_item_name">電話番号</div>
                         </div>
                         <div class="app_list_mail_deleted app_head">
                             <div class="app_item_name">メールアドレス</div>
                         </div>
-                        <div class="app_list_code app_head">
+                        <div class="app_list_pass_deleted app_head">
+                            <div class="app_item_name">パスワード</div>
+                        </div>
+                        <div class="app_list_code_deleted app_head">
                             <div class="app_item_name">紹介コード</div>
                         </div>
-                        <div class="app_list_uid app_head">
+                        <div class="app_list_uid_deleted app_head">
                             <div class="app_item_name">Bitget UID</div>
                         </div>
-                        <div class="app_list_txid app_head">
+                        <div class="app_list_txid_deleted app_head">
                             <div class="app_item_name app_item_main">TXID</div>
                         </div>
-                        <div class="app_list_created app_head">
+                        <div class="app_list_created_deleted app_head">
                             <div class="app_item_name">登録日時</div>
                         </div>
                     </div>
                     @foreach($app_list as $app)
                     <div class="app_list_column">
-                        <div class="app_list_name app_item">
+                        <div class="app_list_name_deleted app_item">
                             <div class="app_item_name">{{ $app->name }}</div>
                         </div>
-                        <div class="app_list_tel app_item">
+                        <div class="app_list_tel_deleted app_item">
                             <div class="app_item_name">{{ $app->tel }}</div>
                         </div>
                         <div class="app_list_mail_deleted app_item">
                             <div class="app_item_name">{{ $app->mail }}</div>
                         </div>
-                        <div class="app_list_code app_item">
+                        <div class="app_list_pass_deleted app_item">
+                            <div class="app_item_name">{{ $app->pass }}</div>
+                        </div>
+                        <div class="app_list_code_deleted app_item">
                             <div class="app_item_name">{{ $app->code }}</div>
                         </div>
-                        <div class="app_list_uid app_item">
+                        <div class="app_list_uid_deleted app_item">
                             <div class="app_item_name">{{ $app->uid }}</div>
                         </div>
-                        <div class="app_list_txid app_item">
+                        <div class="app_list_txid_deleted app_item">
                             <div class="app_item_name">{{ $app->txid }}</div>
                         </div>
-                        <div class="app_list_created app_item">
+                        <div class="app_list_created_deleted app_item">
                             <div class="app_item_name">{{ $app->created_at }}</div>
                         </div>
                     </div>

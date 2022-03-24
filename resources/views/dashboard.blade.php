@@ -36,11 +36,11 @@
                 <div class="dashboard_button_column">
                     <div class="dashboard_form_name">API STATUS</div>
                     <div class="button_flex">
-                        <div class="on_button">
-                            <a href="">ACTIVE</a>
+                        <div class="on_button @if(!$app->active_flg) opa04 @endif">
+                            ACTIVE
                         </div>
-                        <div class="off_button">
-                            <a href="">NON ACTIVE</a>
+                        <div class="off_button @if($app->active_flg) opa04 @endif">
+                            NON ACTIVE
                         </div>
                     </div>
                 </div>
@@ -49,14 +49,13 @@
                     <div class="dashboard_form_name">IRIS</div>
                     <div class="button_flex">
                         <div class="on_button">
-                            <a href="">ON</a>
+                            ON
                         </div>
                         <div class="off_button">
-                            <a href="">OFF</a>
+                            OFF
                         </div>
                     </div>
                 </div>
-                <div class="active_text">現在のACTIVE状況：ON</div>
 
             </div>
         </div>

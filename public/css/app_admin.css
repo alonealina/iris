@@ -32,8 +32,8 @@ html {
 
 .search_box {
     top: 150px;
-    width: 20%;
-    right: 15%;
+    width: 30%;
+    right: 5%;
     position: absolute;
 }
 
@@ -54,9 +54,9 @@ html {
 }
 
 #admin_content {
-    margin-left: 15%;
-    margin-right: 15%;
-    width:70%;
+    margin-left: 5%;
+    margin-right: 5%;
+    width:90%;
     top: 190px;
     position: absolute;
 }
@@ -112,35 +112,105 @@ input[type=checkbox] {
 }
 
 .app_list_name {
-    width: 10%;
+    width: 6%;
 }
 
-.app_list_uid {
-    width: 16%;
+.app_list_name_deleted {
+    width: 8%;
 }
 
 .app_list_tel {
-    width: 12%;
+    width: 8%;
 }
 
-.app_list_mail {
-    width: 15%;
-}
-
-.app_list_mail_deleted {
-    width: 17%;
-}
-
-.app_list_code {
+.app_list_tel_deleted {
     width: 10%;
 }
 
+.app_list_mail {
+    width: 10%;
+}
+
+.app_list_mail_deleted {
+    width: 15%;
+}
+
+.app_list_pass {
+    width: 7%;
+}
+
+.app_list_pass_deleted {
+    width: 10%;
+}
+
+.app_list_code {
+    width: 8%;
+}
+
+.app_list_code_deleted {
+    width: 8%;
+}
+
+.app_list_uid {
+    width: 11%;
+}
+
+.app_list_uid_deleted {
+    width: 14%;
+}
+
 .app_list_txid {
+    width: 13%;
+}
+
+.app_list_txid_deleted {
     width: 20%;
 }
 
 .app_list_created {
+    width: 11%;
+}
+
+.app_list_created_deleted {
     width: 15%;
+}
+
+.app_list_btn {
+    width: 24%;
+}
+
+.on_button a {
+    font: normal normal normal 10px/28px Hiragino Sans;
+    letter-spacing: 1.05px;
+    display: block;
+    width: 40%;
+    height: 30px;
+    line-height: 32px;
+    margin: 10px;
+    background: #B50000 0% 0% no-repeat padding-box;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    float: left;
+}
+
+.off_button a {
+    font: normal normal normal 10px/28px Hiragino Sans;
+    letter-spacing: 1.05px;
+    display: block;
+    width: 40%;
+    height: 30px;
+    line-height: 32px;
+    margin: 10px;
+    background: #203DB6 0% 0% no-repeat padding-box;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    float: right;
+}
+
+.opa04 {
+    opacity:0.4;
 }
 
 .app_item_name {
@@ -273,7 +343,7 @@ select {
 .delete_button a {
     position: absolute;
     top: 120px;
-    left: 16%;
+    left: 6%;
     font: normal normal normal 15px/26px Hiragino Sans;
     letter-spacing: 1.05px;
     display: block;
@@ -292,7 +362,7 @@ select {
 .csv_button a {
     position: absolute;
     top: 120px;
-    left: 27%;
+    left: 20%;
     font: normal normal normal 15px/26px Hiragino Sans;
     letter-spacing: 1.05px;
     display: block;
@@ -311,7 +381,7 @@ select {
 .deleted_button a {
     position: absolute;
     top: 120px;
-    left: 38%;
+    left: 34%;
     font: normal normal normal 15px/26px Hiragino Sans;
     letter-spacing: 1.05px;
     display: block;
