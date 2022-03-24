@@ -43,6 +43,10 @@ function clickDeleteButton() {
   document.forms.app_list_form.submit();
 }
 
+function clickCsvButton() {
+  document.forms.app_list_form.submit();
+}
+
 $(function() {
   // 1. 「全選択」する
   $('#all').on('click', function() {

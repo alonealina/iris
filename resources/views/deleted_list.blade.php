@@ -21,36 +21,23 @@
             </nav>
         </header>
 
-        <form id="form" name="search_form" action="{{ route('admin.app_list') }}" method="get">
-            <div class="delete_button btn">
-                <a href="#" onclick="clickDeleteButton()">Delete</a>
-            </div>
-            <div class="csv_button btn">
-                <a href="{{ route('admin.csv_export') }}">CSV Export</a>
-            </div>
-            <div class="deleted_button btn">
-                <a href="{{ route('admin.deleted_list') }}">Deleted</a>
-            </div>
+        <form id="form" name="search_form" action="{{ route('admin.deleted_list') }}" method="get">
             <div class="search_box">
                 <a href="#" onclick="clickSearchButton()"><img src="../../img/search_btn.png" class="search_btn"></a>
                 {{ Form::text('freeword', old('freeword'), ['class' => 'form_freeword', 'maxlength' => 50, 'placeholder' => 'キーワード検索']) }}
             </div>
         </form>
 
-        <form id="boxes" name="app_list_form" action="{{ route('admin.app_list_delete') }}" method="get">
             <div id="admin_content">
                 <div class="app_list">
                     <div class="app_list_column border_bottom_column">
-                        <div class="app_list_chk app_head">
-                            <input type="checkbox" id="all">
-                        </div>
                         <div class="app_list_name app_head">
                             <div class="app_item_name">お名前</div>
                         </div>
                         <div class="app_list_tel app_head">
                             <div class="app_item_name">電話番号</div>
                         </div>
-                        <div class="app_list_mail app_head">
+                        <div class="app_list_mail_deleted app_head">
                             <div class="app_item_name">メールアドレス</div>
                         </div>
                         <div class="app_list_code app_head">
@@ -68,16 +55,13 @@
                     </div>
                     @foreach($app_list as $app)
                     <div class="app_list_column">
-                        <div class="app_list_chk app_item">
-                            <input type="checkbox" name="chk[]" value="{{ $app->id }}">
-                        </div>
                         <div class="app_list_name app_item">
                             <div class="app_item_name">{{ $app->name }}</div>
                         </div>
                         <div class="app_list_tel app_item">
                             <div class="app_item_name">{{ $app->tel }}</div>
                         </div>
-                        <div class="app_list_mail app_item">
+                        <div class="app_list_mail_deleted app_item">
                             <div class="app_item_name">{{ $app->mail }}</div>
                         </div>
                         <div class="app_list_code app_item">
@@ -99,7 +83,6 @@
                 {{ $app_list->appends(request()->query())->links('pagination::bootstrap-4') }}
                 </div>
             </div>
-        </form>
 
     </body>
 

@@ -12,6 +12,8 @@ Route::get('complete', 'App\Http\Controllers\IrisController@complete')->name('co
 Route::get('dashboard', 'App\Http\Controllers\IrisController@dashboard')->name('dashboard')->middleware('login_user');
 
 Route::get('admin/app_list', 'App\Http\Controllers\IrisController@app_list')->name('admin.app_list')->middleware('login_admin');
+Route::get('admin/deleted_list', 'App\Http\Controllers\IrisController@deleted_list')->name('admin.deleted_list')->middleware('login_admin');
+Route::get('admin/csv_export', 'App\Http\Controllers\IrisController@csv_export')->name('admin.csv_export')->middleware('login_admin');
 Route::get('admin/app_list_delete', 'App\Http\Controllers\IrisController@app_list_delete')->name('admin.app_list_delete')->middleware('login_admin');
 Route::get('admin/search', 'App\Http\Controllers\IrisController@search')->name('admin.search')->middleware('login_admin');
 

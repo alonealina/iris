@@ -11,4 +11,17 @@ class Application extends Model
 
     protected $guarded = ['id']; 
     
+    public function outputCsvContent() {
+        return [
+            $this->name,
+            $this->tel,            
+            $this->mail,    
+            $this->pass,         
+            $this->code,       
+            $this->uid,
+            $this->txid,
+            $this->created_at,
+            $this->updated_at,
+        ];
+    }
 }

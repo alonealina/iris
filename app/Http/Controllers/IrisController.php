@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 use App\Models\Application;
 use App\Models\Adminuser;
 use App\Rules\AlphaNumCheck;
@@ -146,12 +147,34 @@ class IrisController extends Controller
         if (!empty($freeword)) {
             $app_list = Application::orwhere('name', 'like', "%$freeword%")->orwhere('uid', 'like', "%$freeword%")->orwhere('tel', 'like', "%$freeword%")
                 ->orwhere('mail', 'like', "%$freeword%")->orwhere('code', 'like', "%$freeword%")->orwhere('txid', 'like', "%$freeword%")
-                ->orderBy('created_at', 'desc')->paginate(15);
+                ->where('delete_flg', 0)->orderBy('created_at', 'desc')->paginate(15);
         } else {
-            $app_list = Application::orderBy('created_at', 'desc')->paginate(15);
+            $app_list = Application::where('delete_flg', 0)->orderBy('created_at', 'desc')->paginate(15);
         }
 
         return view('app_list', [
+            'app_list' => $app_list,
+        ]);
+    }
+
+    public function deleted_list(Request $request)
+    {
+        $filter_array = $request->all();
+        $freeword = null;
+
+        if (isset($filter_array['freeword'])) {
+            $freeword = $filter_array['freeword'];
+        }
+
+        if (!empty($freeword)) {
+            $app_list = Application::orwhere('name', 'like', "%$freeword%")->orwhere('uid', 'like', "%$freeword%")->orwhere('tel', 'like', "%$freeword%")
+                ->orwhere('mail', 'like', "%$freeword%")->orwhere('code', 'like', "%$freeword%")->orwhere('txid', 'like', "%$freeword%")
+                ->where('delete_flg', 1)->orderBy('created_at', 'desc')->paginate(15);
+        } else {
+            $app_list = Application::where('delete_flg', 1)->orderBy('created_at', 'desc')->paginate(15);
+        }
+
+        return view('deleted_list', [
             'app_list' => $app_list,
         ]);
     }
@@ -164,7 +187,7 @@ class IrisController extends Controller
             DB::beginTransaction();
             foreach ($chk_list as $chk) {
                 try {
-                    Application::where('id', $chk)->delete();
+                    Application::where('id', $chk)->update(['delete_flg' => 1]);
                 } catch (\Exception $e) {
                     DB::rollback();
                 }
@@ -173,6 +196,41 @@ class IrisController extends Controller
         }
 
         return redirect('admin/app_list')->with('message', '申し込みを削除しました');
+    }
+
+    public function csv_export()
+    {
+        $apps = Application::where('delete_flg', 0)->orderBy('created_at', 'desc')->get();
+        $cvsList[] = ['お名前', '電話番号', 'メールアドレス', '紹介コード', 'Bitget UID', 'TXID', '作成日時', '更新日時', 
+        ];
+        foreach ($apps as $app) {
+            $cvsList[] = $app->outputCsvContent();
+        }
+
+        $response = new StreamedResponse (function() use ($cvsList){
+            $stream = fopen('php://output', 'w');
+
+            //　文字化け回避
+            stream_filter_prepend($stream,'convert.iconv.utf-8/cp932//TRANSLIT');
+
+            // CSVデータ
+            foreach($cvsList as $key => $value) {
+                fputcsv($stream, $value);
+            }
+            $buffer = str_replace("\n", "\r\n", stream_get_contents($stream));
+            fclose($stream);
+            //出力ストリーム
+            $fp = fopen('php://output', 'w+b');
+            //さっき置換した内容を出力 
+            fwrite($fp, $buffer);
+        
+            fclose($fp);
+        });
+        
+        $response->headers->set('Content-Type', 'application/octet-stream');
+        $response->headers->set('Content-Disposition', 'attachment; filename="iris.csv"');
+ 
+        return $response;
     }
 
     public function forget_mail(Request $request)
