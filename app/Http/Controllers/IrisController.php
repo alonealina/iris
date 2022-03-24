@@ -281,7 +281,7 @@ class IrisController extends Controller
     
     public function login_user(Request $request)
     {
-        $user = Application::where('mail', $request->login_id)->first();
+        $user = Application::where('mail', $request->login_id)->where('delete_flg', 0)->first();
         if (isset($user)) {
             if ($request->password == $user->pass) {
                 // セッション
