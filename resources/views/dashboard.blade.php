@@ -19,22 +19,34 @@
                 </div>
 
                 <div class="dashboard_form_column">
-                    <div class="dashboard_form_name">bitget UID</div>
+                    <div class="dashboard_form_name">Your Bitget UID</div>
                     <input type="text" class="form-control" name="bitget_uid">
                 </div>
                 <div class="dashboard_form_column">
-                    <div class="dashboard_form_name">アクセスAPIキー</div>
+                    <div class="dashboard_form_name">API Key</div>
                     <input type="text" class="form-control" name="api_key">
                 </div>
                 <div class="dashboard_form_column">
-                    <div class="dashboard_form_name">シークレットキー</div>
+                    <div class="dashboard_form_name">Secret Key</div>
                     <input type="text" class="form-control" name="secret_key">
                 </div>
 
-                <input type="submit" value="接続" class="btn connect_button">
+                <input type="submit" value="Connect" class="btn connect_button">
 
                 <div class="dashboard_button_column">
-                    <div class="dashboard_form_name">ACTIVE</div>
+                    <div class="dashboard_form_name">API STATUS</div>
+                    <div class="button_flex">
+                        <div class="on_button">
+                            <a href="">ACTIVE</a>
+                        </div>
+                        <div class="off_button">
+                            <a href="">NON ACTIVE</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard_button_column">
+                    <div class="dashboard_form_name">IRIS</div>
                     <div class="button_flex">
                         <div class="on_button">
                             <a href="">ON</a>
