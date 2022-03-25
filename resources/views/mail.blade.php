@@ -13,9 +13,9 @@ ID<br>
 今後とも、「Iris system」のご利用をよろしくお願い申し上げます。<br>
 <br>
 <br>
-Moviez株式会社<br>
+Liberty Asst Management Ltd.<br>
 ・住所<br>
-東京都港区北青山2-7-26 Landwork青山ビル2F<br>
+160 Kemp House, City Road, London EC1V 2NX<br>
 ・お問い合わせ先<br>
 support@iris-system.org<br>
 <br>
