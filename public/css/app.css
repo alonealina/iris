@@ -52,6 +52,7 @@ li {
 .logo {
     margin:70px auto 0 auto;
     display: block;
+    width: 100px;
 }
 
 .copy {
@@ -268,6 +269,14 @@ li {
     margin: 40px auto 20px auto;
     width: 150px;
     display: block;
+}
+
+.dashboard_logo {
+    width: 150px;
+}
+
+.logo_header {
+    width: 150px;
 }
 
 .login_form_name, .reminder_form_name, .dashboard_form_name {
