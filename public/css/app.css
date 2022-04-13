@@ -260,6 +260,21 @@ li {
     position: relative;
 }
 
+.dashboard_explain {
+    width:100%;
+    font-weight: bold;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+.dashboard_explain_red {
+    color:red;
+}
+
+.space {
+    height:200px;
+}
+
 .dashboard_header {
     margin: 30px 0;
     display: flex;

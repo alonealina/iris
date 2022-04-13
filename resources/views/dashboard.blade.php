@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="dashboard_button_column">
-                    <div class="dashboard_form_name">IRIS</div>
+                    <div class="dashboard_form_name">Iris</div>
                     <div class="button_flex">
                         <div class="on_button">
                             ON
@@ -57,7 +57,16 @@
                     </div>
                 </div>
 
+                <div class="dashboard_explain">
+                    <div class="dashboard_explain_red">※注意事項※　よくお読みください</div>
+                    ①Irisは接続口座の残高全てを元本として取引しますのでご注意ください
+                    ②Iris稼働（ON点灯）中は接続口座の入出金は行わないようお願いいたします。
+                    万が一、入出金があった場合、システムが正常に稼働せず、損失を被る場合がございます。
+                    入出金の際は必ずIris稼働停止（OFF点灯時）に切り替え後に手続きをお願いいたします。
+                    ③Iris稼働停止（OFF点灯時）をする場合、その時点での保有ポジションは強制決済されますので、予めご了承ください。
+                </div>
             </div>
+            <div class="space"></div>
         </div>
 
     </body>
