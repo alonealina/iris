@@ -31,8 +31,35 @@ function clickTxidButton() {
 
 function copy() {
   var copy_text = document.getElementById('copy');
-  copy_text.select();
-  document.execCommand('copy');
+  if (navigator.userAgent.match(/ipad|ipod|iphone/i)) {
+    // iphone用のコピー設定
+    try {
+        // iOSの場合、readOnlyではコピーできない(たぶん)ので、
+        // readOnlyを外す
+        copy_text.readOnly = false;
+        // ここから下が、iOS用でしか機能しない関数------
+        var range = document.createRange();
+        range.selectNode(copy_text);
+        window.getSelection().addRange(range);
+        // ------------------------------------------
+        document.execCommand("copy");
+        // readOnlyに戻す
+        copy_text.readOnly = true;
+    } catch (e) {
+        // エラーになった場合も、readOnlyに戻す
+        copy_text.readOnly = true;
+        alert("このブラウザでは対応していません。");
+    }
+  } else {
+      // iphone以外のコピー設定
+      try {
+        copy_text.select();
+        document.execCommand('copy');
+      } catch (e) {
+        alert("このブラウザでは対応していません。");
+      }
+  }
+
 }
 
 function clickSearchButton() {
