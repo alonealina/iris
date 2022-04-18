@@ -31,7 +31,17 @@
                 <div class="button_form td6s none">
                     <a href="#" onclick="clickPaymentButton()">お支払い完了の方はこちら</a>
                 </div>
+                <div class="pay_exp td6s none">
+                    ※注意事項※<br>
+                    Bitgetからお支払いの場合、<br>
+                    次ページに必要なTXID（トランザクションID）は<br>
+                    スマホ等の端末アプリからはコピーできない仕様となっています。<br>
+                    お手数ですが、ウェブサイトからログインの上、<br>
+                    次ページにTXIDの貼り付けをお願いします。
+                </div>
             </form>
+
+
         </div>
 
     </body>

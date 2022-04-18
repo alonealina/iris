@@ -9,6 +9,7 @@ use App\Models\Application;
 use App\Models\Adminuser;
 use App\Rules\AlphaNumCheck;
 use App\Rules\PhoneCheck;
+use App\Rules\MailCheck;
 use DB;
 use Mail;
 use Session;
@@ -23,7 +24,7 @@ class IrisController extends Controller
             'code' => 'required',
             'uid' => 'required',
             'tel' => ['required', new PhoneCheck()],
-            'mail' => ['required', 'email:strict,dns'],
+            'mail' => ['required', 'email:strict,dns', new MailCheck()],
             'pass' => ['required', 'min:6', new AlphaNumCheck(), ],
         ];
 
@@ -56,7 +57,7 @@ class IrisController extends Controller
         try {
             $application->fill($fill_data)->save();
             DB::commit();
-            return redirect()->to('settle')->with('id', $application->id);
+            return redirect()->to('complete')->with('id', $application->id);
         } catch (\Exception $e) {
             DB::rollback();
         }
@@ -149,9 +150,9 @@ class IrisController extends Controller
         if (!empty($freeword)) {
             $app_list = Application::orwhere('name', 'like', "%$freeword%")->orwhere('uid', 'like', "%$freeword%")->orwhere('tel', 'like', "%$freeword%")
                 ->orwhere('mail', 'like', "%$freeword%")->orwhere('code', 'like', "%$freeword%")->orwhere('txid', 'like', "%$freeword%")
-                ->where('delete_flg', 0)->orderBy('created_at', 'desc')->paginate(15);
+                ->where('delete_flg', 0)->where('check_flg', 0)->orderBy('created_at', 'desc')->paginate(15);
         } else {
-            $app_list = Application::where('delete_flg', 0)->orderBy('created_at', 'desc')->paginate(15);
+            $app_list = Application::where('delete_flg', 0)->where('check_flg', 0)->orderBy('created_at', 'desc')->paginate(15);
         }
 
         return view('app_list', [
@@ -181,15 +182,38 @@ class IrisController extends Controller
         ]);
     }
 
-    public function app_list_delete(Request $request)
+    public function checked_list(Request $request)
+    {
+        $filter_array = $request->all();
+        $freeword = null;
+
+        if (isset($filter_array['freeword'])) {
+            $freeword = $filter_array['freeword'];
+        }
+
+        if (!empty($freeword)) {
+            $app_list = Application::orwhere('name', 'like', "%$freeword%")->orwhere('uid', 'like', "%$freeword%")->orwhere('tel', 'like', "%$freeword%")
+                ->orwhere('mail', 'like', "%$freeword%")->orwhere('code', 'like', "%$freeword%")->orwhere('txid', 'like', "%$freeword%")
+                ->where('check_flg', 1)->orderBy('created_at', 'desc')->paginate(15);
+        } else {
+            $app_list = Application::where('check_flg', 1)->orderBy('created_at', 'desc')->paginate(15);
+        }
+
+        return view('checked_list', [
+            'app_list' => $app_list,
+        ]);
+    }
+
+    public function app_list_update(Request $request)
     {
         $request = $request->all();
         $chk_list = isset($request['chk']) ? $request['chk'] : null;
+        $type = $request['type'];
         if (!empty($chk_list)) {
             DB::beginTransaction();
             foreach ($chk_list as $chk) {
                 try {
-                    Application::where('id', $chk)->update(['delete_flg' => 1]);
+                    Application::where('id', $chk)->update(['delete_flg' => 1, $type => 1]);
                 } catch (\Exception $e) {
                     DB::rollback();
                 }
@@ -217,7 +241,7 @@ class IrisController extends Controller
     public function csv_export()
     {
         $apps = Application::where('delete_flg', 0)->orderBy('created_at', 'desc')->get();
-        $cvsList[] = ['お名前', '電話番号', 'メールアドレス', 'パスワード', '紹介コード', 'Bitget UID', 'TXID', '作成日時', 
+        $cvsList[] = ['お名前', '電話番号', 'メールアドレス', 'パスワード', '紹介コード', 'Bitget UID', 'TXID', 'API Status', '作成日時', 
         ];
         foreach ($apps as $app) {
             $cvsList[] = $app->outputCsvContent();

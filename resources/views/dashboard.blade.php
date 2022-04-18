@@ -32,6 +32,9 @@
                 </div>
 
                 <input type="submit" value="Connect" class="btn connect_button">
+                <div class="payment_button">
+                    <a href="{{ route('settle') }}">Payment</a>
+                </div>
 
                 <div class="dashboard_button_column">
                     <div class="dashboard_form_name">API STATUS</div>

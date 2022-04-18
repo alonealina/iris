@@ -11,6 +11,14 @@ class Application extends Model
 
     protected $guarded = ['id']; 
     
+    public function getActiveTextAttribute() {
+        if ($this->active_flg) {
+            return 'ACTIVE';
+        } else {
+            return 'NON ACTIVE';
+        };
+    }
+
     public function outputCsvContent() {
         return [
             $this->name,
@@ -20,6 +28,7 @@ class Application extends Model
             $this->code,       
             $this->uid,
             $this->txid,
+            $this->active_text,
             $this->created_at,
         ];
     }

@@ -7,6 +7,7 @@ $(function () {
   setTimeout(function(){$('.button_form').removeClass('none');},1000);
   setTimeout(function(){$('.pay_price').removeClass('none');},1000);
   setTimeout(function(){$('.qr').removeClass('none');},1000);
+  setTimeout(function(){$('.pay_exp').removeClass('none');},1000);
   setTimeout(function(){$('.complete_text').removeClass('none');},1000);
   setTimeout(function(){$('.mail_address').removeClass('none');},1000);
   setTimeout(function(){$('.txid_explain').removeClass('none');},1000);
@@ -40,6 +41,28 @@ function clickSearchButton() {
 }
 
 function clickDeleteButton() {
+  // エレメントを作成
+  var ele = document.createElement('input');
+  // データを設定
+  ele.setAttribute('type', 'hidden');
+  ele.setAttribute('name', 'type');
+  ele.setAttribute('value', 'delete_flg');
+  // 要素を追加
+  document.forms.app_list_form.appendChild(ele);
+
+  document.forms.app_list_form.submit();
+}
+
+function clickCheckButton() {
+  // エレメントを作成
+  var ele = document.createElement('input');
+  // データを設定
+  ele.setAttribute('type', 'hidden');
+  ele.setAttribute('name', 'type');
+  ele.setAttribute('value', 'check_flg');
+  // 要素を追加
+  document.forms.app_list_form.appendChild(ele);
+
   document.forms.app_list_form.submit();
 }
 

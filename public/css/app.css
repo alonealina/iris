@@ -135,6 +135,14 @@ li {
     color: #FFFFFF;
 }
 
+.pay_exp {
+    font: normal normal normal 15px/20px Hiragino Sans;
+    color: #FFFFFF;
+    width:460px;
+    margin: auto;
+    margin-bottom: 40px;
+}
+
 .item_text {
     display: block;
     width: 100%;
@@ -382,9 +390,29 @@ li {
     width: 300px;
     height: 50px;
     margin: auto;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
     margin-top: 25px;
     display: block;
+}
+
+.payment_button a {
+    color: #FFFFFF;
+    background: #205cb6 0% 0% no-repeat padding-box;
+    border-radius: 0px;
+    width: 300px;
+    height: 50px;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    display: block;
+    line-height: 50px;
+    transition: color .15s
+}
+
+.payment_button a:hover {
+    color: #212529;
+    text-decoration: none;
 }
 
 .button_flex {
