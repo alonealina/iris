@@ -32,10 +32,11 @@
                 </div>
 
                 <input type="submit" value="Connect" class="btn connect_button">
+                @if(!$app->check_flg)
                 <div class="payment_button">
                     <a href="{{ route('settle') }}">Payment</a>
                 </div>
-
+                @endif
                 <div class="dashboard_button_column">
                     <div class="dashboard_form_name">API STATUS</div>
                     <div class="button_flex">
