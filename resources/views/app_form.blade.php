@@ -64,7 +64,7 @@
                     <input type="checkbox" id="check" name="check"> <a href="../../pdf/terms.pdf" target="_blank">利用規約</a>を確認しました
                 </div>
                 <div class="button_form td8s none">
-                    <a href="#" onclick="clickRegistButton()">決済ページへ</a>
+                    <a href="#" onclick="clickRegistButton()">申し込む</a>
                 </div>
             </form>
         </div>
