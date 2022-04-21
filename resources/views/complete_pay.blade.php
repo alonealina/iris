@@ -11,19 +11,15 @@
     <body>
         <div id="content">
             <img src="../../img/logo.png" class="logo td1s none">
-            <div class="form_name td2s none">申し込み完了</div>
+            <div class="form_name td2s none">お支払い完了</div>
 
             <div class="complete_text td3s none">
-            申し込みが完了致しました。<br>
-            ご登録のメールアドレスへメールを送付しましたので、<br>
-            ご確認よろしくお願いいたします。
+            お支払いが完了致しました。<br>
+            弊社にて確認後、「ACTIVE」権限を付与いたします。<br>
+            ※確認には最大3営業日ほどお時間をいただいております。
             </div>
 
-            <div class="complete_text td4s none">メールが届かない場合は、下記のメールアドレスまでお問い合わせ願います。</div>
-
-            <div class="mail_div">
-                <div class="mail_address td5s none">support@iris-system.org</div>
-            </div>
+            <div class="complete_text td4s none">引き続きよろしくお願い申し上げます。</div>
         </div>
 
     </body>

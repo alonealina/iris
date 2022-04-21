@@ -1,7 +1,6 @@
 この度は、「Iris system」にご登録いただきまして誠にありがとうございます。<br>
 <br>
-商品の納品については、4月末日を目途に、ログイン用URLを送付いたしますので、しばらくお待ち下さいませ。<br>
-<br>
+ご登録情報を元にアカウントの作成が完了致しました。<br>
 ID及びパスワードはログイン時に必要となりますので、本メールを大切に保管していただきますよう、よろしくお願い申し上げます。<br>
 <br>
 ID<br>
@@ -10,9 +9,13 @@ ID<br>
 登録パスワード<br>
 {{ $pass }}<br>
 <br>
+ログインURL<br>
+https://register.iris-system.org/login<br>
+<br>
 今後とも、「Iris system」のご利用をよろしくお願い申し上げます。<br>
 <br>
-<br>
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－<br>
+・会社名<br>
 Liberty Asst Management Ltd.<br>
 ・住所<br>
 160 Kemp House, City Road, London EC1V 2NX<br>

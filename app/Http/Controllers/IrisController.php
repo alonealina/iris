@@ -53,10 +53,18 @@ class IrisController extends Controller
             'pass' => $request['pass'],
         ];
 
+        $data = ['mail' => $request['mail'],
+        'pass' => $request['pass'],];
+
+        $this->mail = $request['mail'];
+
         DB::beginTransaction();
         try {
             $application->fill($fill_data)->save();
             DB::commit();
+            Mail::send('mail', $data, function($message){
+                $message->to($this->mail)->subject('【 Iris system 】ご登録ありがとうございます！');
+            });
             return redirect()->to('complete')->with('id', $application->id);
         } catch (\Exception $e) {
             DB::rollback();
@@ -102,8 +110,7 @@ class IrisController extends Controller
             'txid' => $request['txid'],
         ];
 
-        $data = ['mail' => $application->mail,
-        'pass' => $application->pass,];
+        $data = ['txid' => $request['txid'],];
 
         $this->mail = $application->mail;
 
@@ -111,11 +118,10 @@ class IrisController extends Controller
         try {
             $application->update($fill_data);
             DB::commit();
-            Mail::send('mail', $data, function($message){
-                $message->to($this->mail)->subject('【 Iris system 】ご登録ありがとうございます！');
+            Mail::send('mail_txid', $data, function($message){
+                $message->to($this->mail)->subject('【 Iris system 】お支払いが完了いたしました');
             });
-
-            return redirect()->to('complete')->with('id', $request['id']);
+            return redirect()->to('complete_pay')->with('id', $request['id']);
         } catch (\Exception $e) {
             DB::rollback();
         }
@@ -128,6 +134,16 @@ class IrisController extends Controller
             return redirect('/');
         } else {
             return view('complete');
+        }
+    }
+
+    public function complete_pay()
+    {
+        $id = Session::get('id');
+        if (is_null($id)) {
+            return redirect('/');
+        } else {
+            return view('complete_pay');
         }
     }
 

@@ -9,6 +9,7 @@ Route::post('confirm_post', 'App\Http\Controllers\IrisController@confirm_post')-
 Route::get('confirm', 'App\Http\Controllers\IrisController@confirm')->name('confirm');
 Route::post('txid_store', 'App\Http\Controllers\IrisController@txid_store')->name('txid_store');
 Route::get('complete', 'App\Http\Controllers\IrisController@complete')->name('complete');
+Route::get('complete_pay', 'App\Http\Controllers\IrisController@complete_pay')->name('complete_pay');
 Route::get('dashboard', 'App\Http\Controllers\IrisController@dashboard')->name('dashboard')->middleware('login_user');
 
 Route::get('admin/app_list', 'App\Http\Controllers\IrisController@app_list')->name('admin.app_list')->middleware('login_admin');
