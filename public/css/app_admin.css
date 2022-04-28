@@ -90,6 +90,27 @@ html {
     border-right: solid 1px #F7F7F7;
 }
 
+.faq_list {
+    background: #fff;
+    margin-top: 10px;
+    width: 100%;
+    font: normal normal normal 14px/21px Hiragino Sans;
+    color: #262626;
+}
+
+.faq_list_column {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: #CCCCCC 1px solid;
+}
+
+.faq_item {
+    font: normal normal normal 10px/12px Hiragino Sans;
+    color: #333333;
+    border-left: solid 1px #F7F7F7;
+    border-right: solid 1px #F7F7F7;
+}
+
 .app_head {
     font: normal normal bold 10px/12px Hiragino Sans;
     color: #333333;
@@ -179,6 +200,18 @@ input[type=checkbox] {
     width: 24%;
 }
 
+.faq_list_q {
+    width: 23%;
+}
+
+.faq_list_a {
+    width: 63%;
+}
+
+.faq_list_btn {
+    width: 14%;
+}
+
 .on_button a {
     font: normal normal normal 10px/28px Hiragino Sans;
     letter-spacing: 1.05px;
@@ -217,6 +250,16 @@ input[type=checkbox] {
     margin: 20px;
     text-align: center;
     overflow-wrap:  break-word;
+}
+
+.faq_item_name {
+    margin: 20px;
+    text-align: center;
+    overflow-wrap:  break-word;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
 }
 
 .border_bottom_column {
@@ -382,4 +425,75 @@ select {
 .checked_button a {
     left: 54%;
     background: #20A1B6 0% 0% no-repeat padding-box;
+}
+
+.regist_div {
+    width: 800px;
+}
+
+.content_div {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #454545;
+    border-radius: 4px;
+    margin: 20px;
+    padding: 20px;
+}
+
+.flex_form_item {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex_form_title {
+    font: normal normal normal 14px/15px Hiragino Sans;
+    color: #262626;
+    margin: 15px 0 5px;
+    width: 120px;
+}
+
+.flex_form_content {
+    margin: 10px 0 5px;
+}
+
+.regist_button a {
+    position: relative;
+    top: -60px;
+    left: -30px;
+    font: normal normal normal 15px/26px Hiragino Sans;
+    letter-spacing: 1.05px;
+    display: block;
+    width: 130px;
+    height: 40px;
+    line-height: 42px;
+    background: #20A1B6 0% 0% no-repeat padding-box;
+    color: #fff;
+    border-radius: 50px;
+    text-decoration: none;
+    text-align: center;
+    margin: 18px 0;
+    float: right;
+}
+
+.faq_update_button a, .faq_delete_button a {
+    position: relative;
+    font: normal normal normal 15px/26px Hiragino Sans;
+    display: block;
+    width: 50px;
+    height: 40px;
+    line-height: 42px;
+    background: #B50000 0% 0% no-repeat padding-box;
+    color: #fff;
+    border-radius: 7px;
+    text-decoration: none;
+    text-align: center;
+    margin: 6px 5px;
+    float: left;
+}
+
+.faq_update_button a {
+    background: #20A1B6 0% 0% no-repeat padding-box;
+}
+
+.faq_delete_button a {
+    background: #B50000 0% 0% no-repeat padding-box;
 }

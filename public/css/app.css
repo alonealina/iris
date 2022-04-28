@@ -486,3 +486,25 @@ li {
     text-align: center;
     margin-bottom: 30px;
 }
+
+.faq_div {
+    max-width:600px;
+    color:#fff;
+    margin:auto;
+}
+
+.faq_content {
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    margin-bottom: 20px;
+}
+
+.faq_q {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 36px 15px 24px 15px;
+}
+
+.faq_a {
+    margin: 0 15px 24px 15px;
+}

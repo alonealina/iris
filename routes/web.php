@@ -12,6 +12,8 @@ Route::get('complete', 'App\Http\Controllers\IrisController@complete')->name('co
 Route::get('complete_pay', 'App\Http\Controllers\IrisController@complete_pay')->name('complete_pay');
 Route::get('dashboard', 'App\Http\Controllers\IrisController@dashboard')->name('dashboard')->middleware('login_user');
 
+Route::get('faq', 'App\Http\Controllers\IrisController@faq')->name('faq');
+
 Route::get('admin/app_list', 'App\Http\Controllers\IrisController@app_list')->name('admin.app_list')->middleware('login_admin');
 Route::get('admin/deleted_list', 'App\Http\Controllers\IrisController@deleted_list')->name('admin.deleted_list')->middleware('login_admin');
 Route::get('admin/checked_list', 'App\Http\Controllers\IrisController@checked_list')->name('admin.checked_list')->middleware('login_admin');
@@ -19,6 +21,11 @@ Route::get('admin/csv_export', 'App\Http\Controllers\IrisController@csv_export')
 Route::get('admin/app_list_update', 'App\Http\Controllers\IrisController@app_list_update')->name('admin.app_list_update')->middleware('login_admin');
 Route::get('admin/app_active/{id}/{flg}/', 'App\Http\Controllers\IrisController@app_active')->name('admin.app_active')->middleware('login_admin');
 Route::get('admin/search', 'App\Http\Controllers\IrisController@search')->name('admin.search')->middleware('login_admin');
+
+Route::get('admin/faq_list', 'App\Http\Controllers\IrisController@faq_list')->name('admin.faq_list')->middleware('login_admin');
+Route::get('admin/faq_regist', 'App\Http\Controllers\IrisController@faq_regist')->name('admin.faq_regist')->middleware('login_admin');
+Route::get('admin/faq_store', 'App\Http\Controllers\IrisController@faq_store')->name('admin.faq_store')->middleware('login_admin');
+
 
 // ユーザーログイン
 Route::get('login', function () { return view('login_user'); });

@@ -147,6 +147,21 @@ class IrisController extends Controller
         }
     }
 
+    public function faq()
+    {
+        return view('faq');
+    }
+
+    public function faq_list()
+    {
+        return view('faq_list');
+    }
+
+    public function faq_regist()
+    {
+        return view('faq_regist');
+    }
+
     public function dashboard()
     {
         $id = Session::get('id');
