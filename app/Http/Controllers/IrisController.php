@@ -272,7 +272,7 @@ class IrisController extends Controller
     public function csv_export()
     {
         $apps = Application::where('delete_flg', 0)->orderBy('created_at', 'desc')->get();
-        $cvsList[] = ['お名前', '電話番号', 'メールアドレス', 'パスワード', '紹介コード', 'Bitget UID', 'TXID', 'API Status', '作成日時', 
+        $cvsList[] = ['お名前', '電話番号', 'メールアドレス', 'パスワード', '紹介コード', 'Bitget UID', 'API Key', 'Secret Key', 'TXID', 'API Status', '作成日時', 
         ];
         foreach ($apps as $app) {
             $cvsList[] = $app->outputCsvContent();

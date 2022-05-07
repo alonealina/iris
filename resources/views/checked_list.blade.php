@@ -49,6 +49,12 @@
                         <div class="app_list_uid_deleted app_head">
                             <div class="app_item_name">Bitget UID</div>
                         </div>
+                        <div class="app_list_api_deleted app_head">
+                            <div class="app_item_name">API Key</div>
+                        </div>
+                        <div class="app_list_secret_deleted app_head">
+                            <div class="app_item_name">Secret Key</div>
+                        </div>
                         <div class="app_list_txid_deleted app_head">
                             <div class="app_item_name app_item_main">TXID</div>
                         </div>
@@ -75,6 +81,12 @@
                         </div>
                         <div class="app_list_uid_deleted app_item">
                             <div class="app_item_name">{{ $app->uid }}</div>
+                        </div>
+                        <div class="app_list_api_deleted app_item">
+                            <div class="app_item_name">{{ $app->api_key }}</div>
+                        </div>
+                        <div class="app_list_secret_deleted app_item">
+                            <div class="app_item_name">{{ $app->secret_key }}</div>
                         </div>
                         <div class="app_list_txid_deleted app_item">
                             <div class="app_item_name">{{ $app->txid }}</div>

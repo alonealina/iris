@@ -27,6 +27,8 @@ class Application extends Model
             $this->pass,         
             $this->code,       
             $this->uid,
+            $this->api_key,
+            $this->secret_key,
             $this->txid,
             $this->active_text,
             $this->created_at,
