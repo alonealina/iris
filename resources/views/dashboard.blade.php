@@ -30,6 +30,10 @@
                     <div class="dashboard_form_name">Secret Key</div>
                     <input type="text" class="form-control" name="secret_key">
                 </div>
+                <div class="dashboard_form_column">
+                    <div class="dashboard_form_name">取引パスワード</div>
+                    <input type="text" class="form-control" name="pass_t">
+                </div>
 
                 <input type="submit" value="Connect" class="btn connect_button">
                 @if(!$app->check_flg)
