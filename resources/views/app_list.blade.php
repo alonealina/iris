@@ -74,6 +74,9 @@
                         <div class="app_list_secret app_head">
                             <div class="app_item_name">Secret Key</div>
                         </div>
+                        <div class="app_list_pass_t app_head">
+                            <div class="app_item_name">取引パスワード</div>
+                        </div>
                         <div class="app_list_txid app_head">
                             <div class="app_item_name app_item_main">TXID</div>
                         </div>
@@ -112,6 +115,9 @@
                         </div>
                         <div class="app_list_secret app_item">
                             <div class="app_item_name">{{ $app->secret_key }}</div>
+                        </div>
+                        <div class="app_list_pass_t app_item">
+                            <div class="app_item_name">{{ $app->pass_t }}</div>
                         </div>
                         <div class="app_list_txid app_item">
                             <div class="app_item_name">{{ $app->txid }}</div>

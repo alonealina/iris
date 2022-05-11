@@ -145,27 +145,27 @@ input[type=checkbox] {
 }
 
 .app_list_tel_deleted {
-    width: 10%;
+    width: 9%;
 }
 
 .app_list_mail {
-    width: 8%;
+    width: 7%;
 }
 
 .app_list_mail_deleted {
-    width: 11%;
+    width: 10%;
 }
 
 .app_list_pass {
-    width: 6%;
+    width: 5%;
 }
 
 .app_list_pass_deleted {
-    width: 8%;
+    width: 7%;
 }
 
 .app_list_code {
-    width: 7%;
+    width: 6%;
 }
 
 .app_list_code_deleted {
@@ -173,35 +173,43 @@ input[type=checkbox] {
 }
 
 .app_list_uid {
-    width: 8%;
+    width: 7%;
 }
 
 .app_list_uid_deleted {
-    width: 10%;
+    width: 9%;
 }
 
 .app_list_api {
-    width: 8%;
+    width: 7%;
 }
 
 .app_list_api_deleted {
-    width: 10%;
+    width: 9%;
 }
 
 .app_list_secret {
-    width: 8%;
+    width: 7%;
 }
 
 .app_list_secret_deleted {
-    width: 10%;
+    width: 9%;
+}
+
+.app_list_pass_t {
+    width: 7%;
+}
+
+.app_list_pass_t_deleted {
+    width: 9%;
 }
 
 .app_list_txid {
-    width: 8%;
+    width: 7%;
 }
 
 .app_list_txid_deleted {
-    width: 15%;
+    width: 12%;
 }
 
 .app_list_created {
