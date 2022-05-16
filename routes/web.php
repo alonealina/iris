@@ -11,6 +11,7 @@ Route::post('txid_store', 'App\Http\Controllers\IrisController@txid_store')->nam
 Route::get('complete', 'App\Http\Controllers\IrisController@complete')->name('complete');
 Route::get('complete_pay', 'App\Http\Controllers\IrisController@complete_pay')->name('complete_pay');
 Route::get('dashboard', 'App\Http\Controllers\IrisController@dashboard')->name('dashboard')->middleware('login_user');
+Route::post('connect', 'App\Http\Controllers\IrisController@connect')->name('connect')->middleware('login_user');
 
 Route::get('faq', 'App\Http\Controllers\IrisController@faq')->name('faq');
 

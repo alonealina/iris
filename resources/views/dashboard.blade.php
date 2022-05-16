@@ -17,25 +17,35 @@
                         <a href="{{ route('logout') }}">Logout</a>
                     </div>
                 </div>
+                <form action="{{ url('connect') }}" method="post">
+                {{ Form::hidden('id', $app->id) }}
+                    @csrf
+                    <div class="dashboard_form_column">
+                        <div class="dashboard_form_name">Your Bitget UID</div>
+                        <input type="text" class="form-control" name="uid" value="{{ $app->uid }}" maxlength=100>
+                    </div>
+                    <div class="dashboard_form_column">
+                        <div class="dashboard_form_name">API Key</div>
+                        <input type="text" class="form-control" name="api_key" value="{{ $app->api_key }}" maxlength=100>
+                    </div>
+                    <div class="dashboard_form_column">
+                        <div class="dashboard_form_name">Secret Key</div>
+                        <input type="text" class="form-control" name="secret_key" value="{{ $app->secret_key }}" maxlength=100>
+                    </div>
+                    <div class="dashboard_form_column">
+                        <div class="dashboard_form_name">取引パスワード</div>
+                        <input type="text" class="form-control" name="pass_t" value="{{ $app->pass_t }}" maxlength=50>
+                    </div>
 
-                <div class="dashboard_form_column">
-                    <div class="dashboard_form_name">Your Bitget UID</div>
-                    <input type="text" class="form-control" name="bitget_uid">
-                </div>
-                <div class="dashboard_form_column">
-                    <div class="dashboard_form_name">API Key</div>
-                    <input type="text" class="form-control" name="api_key">
-                </div>
-                <div class="dashboard_form_column">
-                    <div class="dashboard_form_name">Secret Key</div>
-                    <input type="text" class="form-control" name="secret_key">
-                </div>
-                <div class="dashboard_form_column">
-                    <div class="dashboard_form_name">取引パスワード</div>
-                    <input type="text" class="form-control" name="pass_t">
-                </div>
+                    <input type="submit" value="Connect" class="btn connect_button">
+                </form>
+                @if($errors->has('uid'))
+                <div class="error_message">{{ $errors->first('uid') }}</div>
+                @endif
+                @if(session('message'))
+                <div class="error_message">{{ session('message') }}</div>
+                @endif
 
-                <input type="submit" value="Connect" class="btn connect_button">
                 @if(!$app->check_flg)
                 <div class="payment_button">
                     <a href="{{ route('settle') }}">Payment</a>
@@ -49,18 +59,6 @@
                         </div>
                         <div class="off_button @if($app->active_flg) opa04 @endif">
                             NON ACTIVE
-                        </div>
-                    </div>
-                </div>
-
-                <div class="dashboard_button_column">
-                    <div class="dashboard_form_name">Iris</div>
-                    <div class="button_flex">
-                        <div class="on_button">
-                            ON
-                        </div>
-                        <div class="off_button">
-                            OFF
                         </div>
                     </div>
                 </div>

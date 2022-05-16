@@ -147,26 +147,43 @@ class IrisController extends Controller
         }
     }
 
-    public function faq()
-    {
-        return view('faq');
-    }
-
-    public function faq_list()
-    {
-        return view('faq_list');
-    }
-
-    public function faq_regist()
-    {
-        return view('faq_regist');
-    }
-
     public function dashboard()
     {
         $id = Session::get('id');
         $app = Application::where('id', $id)->first();
         return view('dashboard', ['app' => $app]);
+    }
+
+    public function connect(Request $request)
+    {
+        $rules = [
+            'uid' => 'required',
+        ];
+
+        $messages = [
+            'uid.required' => 'Bitget UIDを入力してください',
+        ];
+
+        Validator::make($request->all(), $rules, $messages)->validate();
+
+        $request = $request->all();
+        $application = Application::find($request['id']);
+
+        $fill_data = [
+            'uid' => $request['uid'],
+            'api_key' => $request['api_key'],
+            'secret_key' => $request['secret_key'],
+            'pass_t' => $request['pass_t'],
+        ];
+
+        DB::beginTransaction();
+        try {
+            $application->update($fill_data);
+            DB::commit();
+            return redirect()->to('dashboard')->with('message', '保存しました');
+        } catch (\Exception $e) {
+            DB::rollback();
+        }
     }
 
     public function app_list(Request $request)
