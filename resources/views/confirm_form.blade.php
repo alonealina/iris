@@ -25,7 +25,7 @@
                 @endif
                 <div class="form_item form_1 td3s none">
                     <div class="item_name">TXID</div>
-                    {{ Form::text('txid', old('txid'), ['class' => 'item_text', 'maxlength' => 50]) }}
+                    {{ Form::text('txid', old('txid'), ['class' => 'item_text', 'maxlength' => 64]) }}
                 </div>
                 <div class="txid_explain td4s none">上記にお支払いのTXIDをご入力下さい。</div>
                 <div class="button_form td5s none">
