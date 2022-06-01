@@ -121,7 +121,8 @@ class IrisController extends Controller
             Mail::send('mail_txid', $data, function($message){
                 $message->to($this->mail)->subject('【 Iris system 】お支払いが完了いたしました');
             });
-            return redirect()->to('complete_pay')->with('id', $request['id']);
+            session(['id' => $request['id']]);
+            return redirect()->to('complete_pay');
         } catch (\Exception $e) {
             DB::rollback();
         }
