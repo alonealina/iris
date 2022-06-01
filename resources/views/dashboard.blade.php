@@ -46,9 +46,13 @@
                 <div class="error_message">{{ session('message') }}</div>
                 @endif
 
-                @if(!$app->check_flg)
+                @if(empty($app->txid))
                 <div class="payment_button">
-                    <a href="{{ route('settle') }}">Payment</a>
+                    <a href="{{ route('settle') }}" target="_blank">Payment</a>
+                </div>
+                @else
+                <div class="payment_button">
+                    <a>支払い済み</a>
                 </div>
                 @endif
                 <div class="dashboard_button_column">

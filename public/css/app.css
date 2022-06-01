@@ -396,7 +396,7 @@ li {
 }
 
 .payment_button a {
-    color: #FFFFFF;
+    color: #FFFFFF!important;
     background: #205cb6 0% 0% no-repeat padding-box;
     border-radius: 0px;
     width: 300px;
